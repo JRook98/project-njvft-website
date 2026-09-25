@@ -1,0 +1,29 @@
+<!-- CS10430 Project -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>NJVFT</title>
+</head>
+<body>
+
+<!-- Title of website as header -->
+<h1>NJVFT</h1>
+
+<h3>(your New Jersey Virtual Field Trip)</h3>
+
+<p>Click on the map to place a marker!</p>
+
+<!-- Creates a new document element with the id: "map" -->
+<div id="map" style="height: 0; width: 50%; padding-bottom: 56.25%"></div>
+
+<!-- Loads javascript file that initializes the google map, sets the bounds of the google map, and places landmark markers from the database-->
+<script src="init_map.js"></script>
+
+<!-- Loads Google Maps API and calls the initMap() function in the "init_map.js" file -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Ep4rBtq2tecPJgVqHYS9vt6vKwFLFuE&callback=initMap" async defer> </script>
+
+</body>
+</html>
