@@ -31,16 +31,22 @@ header img {
     height: 100px;
     width: auto;
 }
-
-.header-text {
-    text-align: center;
-    color: white; 
-}
-
-.header-text h1, .header-text h3 {
+/* Header: NJVFT text styling */
+.header-text h1 {
     margin: 0;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
 }
-
+/* Header: New Jersey Virtual Field Trip text styling */
+.header-text h3 {
+    margin: 5px 0 0 0;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: white;            
+}
 /* To create the two-columns */
 .content-layout {
     display: flex;
