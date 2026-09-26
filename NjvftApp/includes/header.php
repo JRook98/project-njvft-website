@@ -10,7 +10,7 @@
 
  <!-- Title of website as header -->
     <header>
-        <img src="Insert_Logo.png" alt="NJVFT_Logo">
+        <img src="/NjvftApp/images/NJVFT_logo.png" alt="NJVFT_Logo">
         <div class="header-text">
             <h1>NJVFT</h1>
             <h3>New Jersey Virtual Field Trip</h3>
