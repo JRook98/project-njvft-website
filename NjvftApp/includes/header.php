@@ -15,4 +15,10 @@
             <h1>NJVFT</h1>
             <h3>New Jersey Virtual Field Trip</h3>
         </div>
+		<!-- Buttons in header -->
+        <nav class="header-nav">
+            <button onclick="alert('Back to the home page')">Home</button>
+            <button onclick="alert('Learn about this page')">About</button>
+            <button onclick="alert('Contact us')">Contact Us</button>
+        </nav>
     </header>
