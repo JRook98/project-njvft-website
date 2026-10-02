@@ -35,7 +35,7 @@ CREATE TABLE `landmarks` (
   PRIMARY KEY (`landmark_id`),
   KEY `fk_landmarks_categories` (`category_id`),
   CONSTRAINT `fk_landmarks_categories` FOREIGN KEY (`category_id`) REFERENCES `categories` (`category_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `landmarks` (
 
 LOCK TABLES `landmarks` WRITE;
 /*!40000 ALTER TABLE `landmarks` DISABLE KEYS */;
-INSERT INTO `landmarks` VALUES (1,2,'Ocean City','A beautiful place to stay... etc...','Alcohol has been legally banned within city limits since the town was founded in 1879.',39.27760000,74.57460000,'https://www.ocnj.us','2026-09-24 02:25:28'),(2,2,'Atlantic City','Another beautiful place to stay... etc...','The classic Monopoly board game was inspired by Atlantic City\'s streets and properties.',39.36430000,-74.43390000,'https://www.acnj.gov','2026-09-24 02:30:48');
+INSERT INTO `landmarks` VALUES (1,2,'Ocean City','An 8 mile long coastline with a boardwalk, music pier, and a downtown filled with unique boutiques, cafes, and local shops.','Alcohol has been legally banned within city limits since the town was founded in 1879.',39.27760000,-74.57460000,'https://www.ocnj.us','2026-09-24 02:25:28'),(2,2,'Atlantic City','A 5 mile long coastline with a boardwalk, casinos like Hard Rock, and lots of historic attractions like Lucy the Elephant.','The classic Monopoly board game was inspired by Atlantic City\'s streets and properties.',39.36430000,-74.43390000,'https://www.acnj.gov','2026-09-24 02:30:48'),(3,1,'New Jersey State Museum','A historic, publicly funded educational and cultural institution with a focus on science and nature, history and anthropology, and the fine arts.','This museum holds more than 190 original national, state, and regimental banners that were actually carried into battle by New Jersey volunteer regiments during the American Civil War.',40.22106000,-74.77310000,'https://www.nj.gov/state/museum/','2026-10-01 23:19:27'),(5,1,'Liberty Science Center','An interactive science museum featuring hands-on exhibits and live animal displays.','This museum houses the largest planetarium in the Western Hemisphere, and the second largest in the world.',40.70830000,-74.05420000,'https://lsc.org','2026-10-01 23:25:53'),(6,3,'Batsto Village','A meticulously preserved 18th- and 19th-century industrial and farming community located in the heart of the New Jersey Pine Barrens within Wharton State Forest.','This village manufactured supplies for the Continental Army during the Revolutionary War.',39.64178440,-74.64765730,'https://batstovillage.org','2026-10-01 23:29:55'),(7,3,'Waterloo Village Historic Site','A 19th-century canal town with three centuries of regional industrial and cultural development. Today, it serves as a scenic state park, a living history education site, and a prominent wedding and event venue.','This village features a fully functioning, 250-year-old water-powered Gristmil, powerful enough to grind up to 25,000 bushels of grain per year.',40.91650000,-74.75540000,'https://dep.nj.gov/parksandforests/state-park/waterloo-village/','2026-10-01 23:38:47');
 /*!40000 ALTER TABLE `landmarks` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-23 22:48:06
+-- Dump completed on 2026-10-02  0:13:13
