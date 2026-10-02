@@ -41,7 +41,11 @@
  			currentMarker = new google.maps.Marker({
  				position: userPos,
  				map: mapObject,
-                title: 'Your Location' // Shows location name on hover
+                title: 'Your Location', // Shows location name on hover
+                icon: {
+                    url: '/NjvftApp/images/NJVFT_marker_user.png',
+                    scaledSize: new google.maps.Size(30, 45)
+            }  
  			});
  		},
  	);
@@ -58,7 +62,11 @@
     // Place a marker wherever the user clicked.
  		currentMarker = new google.maps.Marker({
  			position: event.latLng,
- 			map: mapObject
+ 			map: mapObject,
+            icon: {
+                url: '/NjvftApp/images/NJVFT_marker_user.png',
+                scaledSize: new google.maps.Size(30, 45)
+            }  
  		});
  	});
 
@@ -66,14 +74,25 @@
 
 
 
- /* Function loadDatabaseMarkers() initializes the database, grabs the name, longitude, and latitude of landmarks, 
+ /* Function loadDatabaseMarkers() initializes the database, grabs the category id, name, longitude, and latitude of landmarks, 
  	and displays them on the Google Map */
  	function loadDatabaseMarkers(map) {
     
     	// Fetch markers using get_markers.php
  		const apiEndpoint = 'get_markers.php'; 
 
+        // Associates category_id with marker image
+        const CATEGORY_ICONS = {
+        '1': '/NjvftApp/images/NJVFT_marker_museum.png',
+        '2': '/NjvftApp/images/NJVFT_marker_beach.png',
+        '3': '/NjvftApp/images/NJVFT_marker_village.png'
+        }
+
+        // If a landmark's category id is not 1, 2, or 3, use a default marker
+        const defaultIcon = '/NjvftApp/images/NJVFT_marker_user.png';
+
  		fetch(apiEndpoint)
+
 
  		// Check if there is a response
  		.then(response => {
@@ -85,13 +104,55 @@
 
  		// Loop through data and create markers
  		.then(places => {
+
+            // Set a global array databaseMarkers to grab each marker's category id for filtering
+             databaseMarkers = [];
+
+            // Place each marker on the google map
  			places.forEach(place => {
- 				new google.maps.Marker({
+                const markerIcon = CATEGORY_ICONS[String(place.category)] || defaultIcon; // Grab the correct marker image for the landmark
+ 				const marker = new google.maps.Marker({
  					position: { lat: place.lat, lng: place.lng },
  					map: map,
-                    title: place.name // Shows location name on hover
+                    title: place.name, // Shows location name on hover
+                    icon: {
+                     url: markerIcon, // Adds the marker image to the current marker
+                     scaledSize: new google.maps.Size(30, 45)
+                     }  
                 });
- 			});
- 		})
- 		.catch(error => console.error('Error loading database markers:', error));
- 	}
+ 			
+            // Save current marker's category_id to databaseMarkers array
+            marker.category_id = String(place.category); 
+            databaseMarkers.push(marker);
+        });
+
+        // selectMenu variable touches dropdown filter element
+        const selectMenu = document.getElementById("location-select");
+        
+        const valueMap = {
+            "museums": "1",
+            "beaches": "2",
+            "historic-villages": "3"
+        };
+
+        // When user selects a different dropdown option...
+        selectMenu.addEventListener("change", (e) => {
+
+            // Grab the value the user selected
+            const selectedValue = e.target.value;
+
+            // Store it into a variable targetedCategoryId
+            const targetedCategoryId = valueMap[selectedValue];
+
+            // Loop through the loaded markers to toggle visibility based on the current value of targetedCategoryId
+            databaseMarkers.forEach(marker => {
+                if (selectedValue === "all" || marker.category_id === targetedCategoryId) {
+                    marker.setMap(map); // Show all markers
+                } else {
+                    marker.setMap(null); // Hide non-matching markers
+                }
+            });
+        });
+    })
+    .catch(error => console.error('Error loading database markers:', error));
+}
