@@ -4,6 +4,7 @@ require 'includes/database_connection.php';
 
 // Get the coordinates from the database
 $sql = "SELECT 
+             category_id,
              name, 
              latitude, 
              longitude 
@@ -17,6 +18,7 @@ if ($result->num_rows > 0) {
     // Loop through database rows and push into an array
     while($row = $result->fetch_assoc()) {
         $locations[] = array(
+            'category' => (string)$row['category_id'],
             'name' => $row['name'],
             'lat'  => (float)$row['latitude'],
             'lng'  => (float)$row['longitude']
