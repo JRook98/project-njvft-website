@@ -9,7 +9,7 @@
         <div class="left-column">
             <label for="location-select" style="display: block; margin-bottom: 8px; font-weight: bold; text-align: center">NJ Landmark Options</label>
             <select id="location-select">
-                <option value="">Select a Landmark</option>
+                <option value="all">All Landmarks</option>
                 <option value="beaches">Beaches</option>
                 <option value="museums">Museums</option>
                 <option value="historic-villages">Historic Villages</option>
