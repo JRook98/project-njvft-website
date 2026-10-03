@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NJVFT Landmark Information</title>
+	
+    <!-- For star font from fontawesome.com -->
+    <script src="https://use.fontawesome.com/aa97a80a47.js"></script>
+	
+    <style>
+        /* Body styling */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+		
+        body {
+            font-family: Arial, sans-serif;
+            background-color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+		
+        .main-content {
+            flex: 1 0 auto;
+            width: 100%;
+            max-width: 1100px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+		
+        .main-content img {
+            margin-bottom: 35px;
+        }
+		
+        .description-box {
+            margin-bottom: 35px;
+        }
+		
+        /* Container styling for the injected star ratings */
+        .rating-container {
+            margin: 20px 0;
+            font-size: 24px;
+            cursor: pointer;
+        }
+		
+        /* Header Styling */
+        header {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+            margin-bottom: 20px;
+            width: 100%;
+            background-color: green;
+            padding: 1rem 2rem;
+            box-sizing: border-box;
+        }
+		
+        /* Logo in header styling */
+        header img {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 100px;
+            width: auto;
+        }
+		
+        /* Header: NJVFT Text styling */
+        .header-text h1 {
+            text-align: center;
+            color: white;
+            margin: 0;
+            font-size: 38px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+		
+        /* Header: New Jersey Virtual Field Trip text styling */
+        .header-text h3 {
+            margin: 5px 0 0 0;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            color: white;
+        }
+		
+        /* Header Buttons */
+        .header-nav {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            display: flex;
+            gap: 12px;
+            z-index: 2;
+        }
+		
+        /* Header Buttons Styling */
+        .header-nav button {
+            padding: 8px 18px;
+            font-size: 14px;
+            font-weight: bold;
+            color: black;
+            background-color: white;
+            border: 2px solid white;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+		
+        /* Header Buttons hover */
+        .header-nav button:hover {
+            background-color: lightblue;
+            border-color: lightblue;
+        }
+		
+        /* 4. Footer Styling*/
+        footer {
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 1100px;
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #ccc;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+            font-size: 14px;
+            color: black;
+            box-sizing: border-box;
+            margin-top: auto;
+        }
+		
+		/* To separate submit button from stars */
+        .submit-container {
+            margin-top: 15px;
+			
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="NJVFT_Logo.png" alt="NJVFT_Logo">
+        <div class="header-text">
+            <h1>NJVFT</h1>
+            <h3>New Jersey Virtual Field Trip</h3>
+        </div>
+        <!-- Buttons in header -->
+        <nav class="header-nav">
+            <button onclick="alert('Learn about this page')">About</button>
+        </nav>
+    </header>
+
+    <!-- Main content wrapper -->
+    <div class="main-content">
+        <!-- Insert Landmark Photo -->
+        <img src="Image_Path.jpg" alt="Insert Landmark photo here" width="500">
+        
+        <!-- Landmark Description -->
+        <div class="description-box">
+            <p>Insert landmark description here</p>
+        </div>
+        
+        <!-- Fun Fact -->
+        <div class="description-box">
+            <p>Insert Fun Fact here</p>
+        </div>
+		
+		<!-- URL Link to the official landmark website-->
+        <p>For more information, visit <a href="https://rowan.edu" target="_blank">Official Landmark Website</a></p>
+
+        <!-- Star Rating Container -->
+		<div class="star-rating-box">
+		  <p style="margin-top: 50px;">Rate this landmark. Select a star rating from 1 star to 5 stars below. Then click Submit.</p>
+		  <div id="star-rating-root" class="rating-container"></div>
+		</div>
+        
+        
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 NJVFT: New Jersey Virtual Field Trip. CS10430. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Star rating -->
+    <script>		
+		
+        // 1. Layout for the 5 stars and submit button    
+        var myRating = `
+		  <div>
+			<span id="star1" class="fa fa-star" style="color:blue;" onclick="starRating(1)"></span> 
+			<span id="star2" class="fa fa-star" style="color:blue;" onclick="starRating(2)"></span> 
+			<span id="star3" class="fa fa-star" style="color:blue;" onclick="starRating(3)"></span> 
+			<span id="star4" class="fa fa-star" style="color:blue;" onclick="starRating(4)"></span> 
+			<span id="star5" class="fa fa-star" style="color:blue;" onclick="starRating(5)"></span> 
+		  </div>		  
+		  <div class="submit-container">
+			<button id="submitBtn" onclick="submitRating()" style="padding: 12px 24px; font-size: 16px; font-weight: bold; background-color: green; color: white; border: none; border-radius: 4px; cursor: pointer;">Submit</button> 
+		  </div>
+		`;
+		
+		// To insert the star and button elements
+        document.getElementById('star-rating-root').innerHTML = myRating;
+
+        // Global variable to keep track of ratings
+        var rating = 0;
+
+        // To reset all stars back to blue
+        function cleanup(){
+            for (var i = 1; i <= 5; i++) {
+                const starId = 'star' + i;
+                const num = document.getElementById(starId);
+                if (num) {
+                    num.style.color = "blue";
+                }
+            } 
+        }
+
+        // When user selects star rating from 1 to 5
+        function starRating(star) {
+            cleanup();
+            rating = star;
+            for (var i = 1; i <= 5; i++) {
+                if (i <= star) {
+                    const starId = 'star' + i;
+                    const num = document.getElementById(starId);
+                    if (num) {
+                        num.style.color = "gold";
+                    }
+                } 
+            } 
+        }
+
+        // To show star rating from backend
+        function showRating(star){
+            rating = star;
+            for (var i = 1; i <= 5; i++) {
+                if (i <= star) {
+                    const starId = 'star' + i;
+                    const num = document.getElementById(starId);
+                    if (num) {
+                        num.style.color = "gold";
+                    }
+                } 
+            } 
+        }
+		
+		// To submit the star rating
+		function submitRating() {  
+			// Alert if no stars were selected
+			if (rating === 0) {
+				alert("Please select a star rating from 1 star to 5 stars");
+				return;
+			}
+			// Alert after rating selection
+			else {
+				alert("Thank you for your submission");
+			}				
+		}
+		
+    </script>
+</body>
+</html>
