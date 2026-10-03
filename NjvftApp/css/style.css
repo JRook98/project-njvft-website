@@ -158,3 +158,29 @@ footer {
     box-sizing: border-box;
     margin-top: auto;
 }
+
+/* Route Modal Background */
+.route-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Route Modal Container */
+#route-modal-container {
+    width: 500px;
+    max-width: 90%;
+    background-color: aliceblue;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
