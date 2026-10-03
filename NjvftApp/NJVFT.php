@@ -17,10 +17,7 @@
             
             <!-- Route button Label -->
             <label for="route-btn" style="display: block; margin-top: 125px; margin-bottom: 8px; font-weight: bold; text-align: center">Click the Button Below for Driving Directions</label>
-            <button id="route-btn">Get Route</button>
-            
-            <!-- Star Rating Label -->
-            <label for="rating-system" style="display: block; margin-top: 40px; margin-bottom: 8px; font-weight: bold; text-align: center">Star Rating</label>
+            <button id="route-btn">Get Route</button>            
         </div>
 
         <!-- Map rendering container -->
