@@ -1,5 +1,121 @@
 <!-- Route Information Modal Content -->
 
+<style>
+
+    /* Route modal content styling */
+    .route-modal-content {
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: aliceblue;
+    }
+
+
+    /* Route modal title */
+    .route-modal-content h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+
+    /* Close button styling */
+    .close-route-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 24px;
+        font-weight: bold;
+        background-color: white;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+
+    /* Close button hover */
+    .close-route-btn:hover {
+        background-color: lightblue;
+    }
+
+
+    /* Container styling for route inputs */
+    .route-input-group {
+        width: 100%;
+        margin: 25px 0;
+        text-align: left;
+    }
+
+
+    /* Route input label styling */
+    .route-input-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+
+    /* Route dropdown styling */
+    .route-input-group select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+
+    /* Route dropdown hover */
+    .route-input-group select:hover {
+        background-color: lightblue;
+        cursor: pointer;
+    }
+
+
+    /* Get Directions and Clear Route button styling */
+    #get-directions-btn,
+    #clear-route-btn {
+        width: 100%;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: green;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+
+    /* Route button hover */
+    #get-directions-btn:hover,
+    #clear-route-btn:hover {
+        background-color: lightblue;
+        color: black;
+    }
+
+
+    /* Error message styling */
+    #route-error {
+        color: red;
+        font-weight: bold;
+        margin: 20px 0;
+    }
+
+
+    /* Route results styling */
+    #route-results {
+        margin: 25px 0;
+        padding-top: 15px;
+        border-top: 1px solid #ccc;
+    }
+
+</style>
+
+
 <div class="route-modal-content">
 
     <!-- Close Route Button -->
@@ -13,6 +129,7 @@
         Select your starting location and destination.
     </p>
 
+
     <!-- Starting Route Location -->
     <div class="route-input-group">
 
@@ -21,6 +138,7 @@
         </label>
 
         <select id="start-location">
+
             <option value="current">
                 My Current Location
             </option>
@@ -28,34 +146,39 @@
             <option value="map">
                 Location Selected on Map
             </option>
+
         </select>
 
     </div>
 
-<!-- Destination -->
-<div class="route-input-group">
 
-    <label for="route-destination">
-        Destination
-    </label>
+    <!-- Destination -->
+    <div class="route-input-group">
 
-    <select id="route-destination">
+        <label for="route-destination">
+            Destination
+        </label>
 
-        <option value="">
-            Select a Landmark
-        </option>
+        <select id="route-destination">
 
-    </select>
+            <option value="">
+                Select a Landmark
+            </option>
 
-</div>
+        </select>
+
+    </div>
+
 
     <!-- Route Button -->
     <button id="get-directions-btn">
         Get Directions
     </button>
 
+
     <!-- Error Message -->
     <p id="route-error"></p>
+
 
     <!-- Dynamic Route Results -->
     <div id="route-results">
@@ -74,6 +197,8 @@
 
     </div>
 
+
+    <!-- Clear Route Button -->
     <button id="clear-route-btn">
         Clear Route
     </button>
