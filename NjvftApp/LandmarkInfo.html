@@ -183,8 +183,9 @@
 
         <!-- Star Rating Container -->
 		<div class="star-rating-box">
-		  <p style="margin-top: 50px;">Rate this landmark. Select a star rating from 1 star to 5 stars below. Then click Submit.</p>
-		  <div id="star-rating-root" class="rating-container"></div>
+			<p style="margin-top: 50px;">Rate this landmark. Select a star rating from 1 star to 5 stars below. Then click Submit.</p>
+		  	<div id="star-rating-root" class="rating-container"></div>
+			<div id="star-rating-message" style="margin-top: 15px; font-weight: bold;"></div>
 		</div>
         
         
@@ -260,17 +261,17 @@
 		
 		// To submit the star rating
 		function submitRating() {  
-			// Alert if no stars were selected
-			if (rating === 0) {
-				alert("Please select a star rating from 1 star to 5 stars");
-				return;
-			}
-			// Alert after rating selection
-			else {
-				alert("Thank you for your submission");
-			}				
-		}
-		
+			rating = star;
+            for (var i = 1; i <= 5; i++) {
+                if (i <= star) {
+                    const starId = 'star' + i;
+                    const num = document.getElementById(starId);
+                    if (num) {
+                        num.style.color = "gold";
+                    }
+                } 
+            } 
+        }		
     </script>
 </body>
 </html>
