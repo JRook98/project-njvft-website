@@ -25,7 +25,14 @@
             <div id="map"></div>
         </div>
     </div>
+<!-- Route Modal -->
+<div id="route-modal" class="route-modal">
 
+    <div id="route-modal-container">
+        <!-- RouteInfo.html will be loaded here -->
+    </div>
+
+</div>
 <!-- Footer -->
 <?php require 'includes/footer.php';?>
 
