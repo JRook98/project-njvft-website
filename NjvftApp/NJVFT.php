@@ -39,6 +39,9 @@
 <!-- Loads javascript file that initializes the google map, sets the bounds of the google map, and places landmark markers from the database-->
 <script src="init_map.js"></script>
 
+<!-- Loads javascript file for the Route modal -->
+<script src="route.js"></script>
+
 <!-- Loads Google Maps API and calls the initMap() function in the "init_map.js" file -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Ep4rBtq2tecPJgVqHYS9vt6vKwFLFuE&callback=initMap" async defer> </script>
 
