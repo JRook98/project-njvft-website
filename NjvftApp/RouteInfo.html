@@ -1,1 +1,105 @@
+<!-- Route Information Modal Content -->
 
+<div class="route-modal-content">
+
+    <!-- Close Route Button -->
+    <button id="close-route-btn" class="close-route-btn">
+        &times;
+    </button>
+
+    <h2>Plan Your Route</h2>
+
+    <p>
+        Select your starting location and destination.
+    </p>
+
+    <!-- Starting Route Location -->
+    <div class="route-input-group">
+
+        <label for="start-location">
+            Starting Location
+        </label>
+
+        <select id="start-location">
+            <option value="current">
+                My Current Location
+            </option>
+
+            <option value="map">
+                Location Selected on Map
+            </option>
+        </select>
+
+    </div>
+
+    <!-- Destination -->
+    <div class="route-input-group">
+
+        <label for="route-destination">
+            Destination
+        </label>
+
+        <select id="route-destination">
+
+            <option value="">
+                Select a Landmark
+            </option>
+
+            <option value="ocean-city">
+                Ocean City
+            </option>
+
+            <option value="atlantic-city">
+                Atlantic City
+            </option>
+
+            <option value="nj-state-museum">
+                New Jersey State Museum
+            </option>
+
+            <option value="liberty-science-center">
+                Liberty Science Center
+            </option>
+
+            <option value="batsto-village">
+                Batsto Village
+            </option>
+
+            <option value="waterloo-village">
+                Waterloo Village Historic Site
+            </option>
+
+        </select>
+
+    </div>
+
+    <!-- Route Button -->
+    <button id="get-directions-btn">
+        Get Directions
+    </button>
+
+    <!-- Error Message -->
+    <p id="route-error"></p>
+
+    <!-- Dynamic Route Results -->
+    <div id="route-results">
+
+        <h3>Route Information</h3>
+
+        <p>
+            <strong>Distance:</strong>
+            <span id="route-distance">--</span>
+        </p>
+
+        <p>
+            <strong>Estimated Drive Time:</strong>
+            <span id="route-time">--</span>
+        </p>
+
+    </div>
+
+    <button id="clear-route-btn">
+        Clear Route
+    </button>
+
+</div>
