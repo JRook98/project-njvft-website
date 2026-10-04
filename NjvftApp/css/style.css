@@ -9,6 +9,12 @@ body {
     min-height: 100vh;
 }
 
+
+
+
+
+/* Header CSS */
+
 header {
     display: flex;
     flex-direction: column;
@@ -80,6 +86,11 @@ header img {
         border-color: lightblue;
     }
 
+
+
+
+
+
 /* To create the two-columns */
 .content-layout {
     display: flex;
@@ -91,6 +102,10 @@ header img {
     box-sizing: border-box;
     flex: 1; 
 }
+
+
+
+
 
 /* Left column styling for the dropdown */
 .left-column {
@@ -131,12 +146,17 @@ header img {
     background-color: lightblue;
 }
 
+
+
+
+
 /* Container to center and size the map */
 #map-container {
     flex: 7; 
     width: 100%;
     box-sizing: border-box;
 }
+
 #map {
     width: 100%;
     height: 500px;
@@ -144,7 +164,11 @@ header img {
     border-radius: 8px;
 }
 
-/* Footer Styling */
+
+
+
+
+/* Footer CSS */
 footer {
     width: 100%;
     max-width: 1100px;
@@ -159,8 +183,14 @@ footer {
     margin-top: auto;
 }
 
-/* Route Modal Background */
-.route-modal {
+
+
+
+
+/* route.js / info.js CSS */
+
+/* Route/Info Modal Background */
+.route-modal, .info-modal {
     display: none;
     position: fixed;
     top: 0;
@@ -177,6 +207,9 @@ footer {
 #route-modal-container {
     width: 500px;
     max-width: 90%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
     background-color: aliceblue;
     padding: 30px;
     border: 1px solid #ccc;
@@ -184,3 +217,187 @@ footer {
     box-sizing: border-box;
 }
 
+/* Info Modal Container */
+#info-modal-container {
+    width: 700px;
+    max-width: 90%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Route/Info modal content styling */
+    .route-modal-content, .info-modal-content {
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: aliceblue;
+
+        /* Allows for modal scrolling */
+        overflow-y: auto;
+    }
+
+    .route-modal-content img, 
+    .info-modal-content img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 15px auto; /* Centers the image and adds vertical spacing */
+    }
+
+
+    /* Route/Info modal title */
+    .route-modal-content h2, .info-modal-content h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+
+    /* Close button styling */
+    .close-route-btn, .close-info-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 24px;
+        font-weight: bold;
+        background-color: white;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+
+    /* Close button hover */
+    .close-route-btn:hover, .close-info-btn:hover{
+        background-color: lightblue;
+    }
+
+
+    /* Container styling for route inputs */
+    .route-input-group {
+        width: 100%;
+        margin: 25px 0;
+        text-align: left;
+    }
+
+
+    /* Route input label styling */
+    .route-input-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+
+    /* Route dropdown styling */
+    .route-input-group select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+
+    /* Route dropdown hover */
+    .route-input-group select:hover {
+        background-color: lightblue;
+        cursor: pointer;
+    }
+
+
+    /* Get Directions and Clear Route button styling */
+    #get-directions-btn,
+    #clear-route-btn {
+        width: 100%;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: green;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+
+    /* Route button hover */
+    #get-directions-btn:hover,
+    #clear-route-btn:hover {
+        background-color: lightblue;
+        color: black;
+    }
+
+
+    /* Route Error message styling */
+    #route-error {
+        color: red;
+        font-weight: bold;
+        margin: 20px 0;
+    }
+
+
+    /* Route results styling */
+    #route-results {
+        margin: 25px 0;
+        padding-top: 15px;
+        border-top: 1px solid #ccc;
+    }
+
+
+
+
+
+/* LandmarkInfo.html CSS */
+
+        .image-content {
+            flex: 1 0 auto;
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .image-content img {
+            width: 100%;
+            aspect-ratio: 5 / 3;
+            object-fit: cover; 
+            object-position: center;
+            display: block;
+            border-radius: 4px;
+        }
+        
+        .description-box {
+            margin-bottom: 35px;
+        }
+
+
+
+
+
+/* Star Rating CSS */
+
+    /* Container styling for the injected star ratings */
+    .rating-container {
+        margin: 20px 0;
+        font-size: 24px;
+        cursor: pointer;
+     }
+        
+    /* To separate submit button from stars */
+    .submit-container {
+        margin-top: 15px;
+            
+}
