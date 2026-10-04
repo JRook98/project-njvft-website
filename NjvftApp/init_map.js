@@ -1,4 +1,4 @@
-	/* Function initMap() initializes the google map, centers the map onto New Jersey with bound restrictions,
+/* Function initMap() initializes the google map, centers the map onto New Jersey with bound restrictions,
 	sets a marker at the users current location if applicable, and allows users to place a new marker wherever they click on the map. */
 	function initMap() {
 
@@ -115,6 +115,7 @@
  					position: { lat: place.lat, lng: place.lng },
  					map: map,
                     title: place.name, // Shows location name on hover
+                    gmpClickable: true,
                     icon: {
                      url: markerIcon, // Adds the marker image to the current marker
                      scaledSize: new google.maps.Size(30, 45)
@@ -123,11 +124,13 @@
  			
             // Save current marker's category_id to databaseMarkers array
             marker.category_id = String(place.category); 
+            attachModalToMarker(marker, map, place);
             databaseMarkers.push(marker);
         });
 
         // selectMenu variable touches dropdown filter element
         const selectMenu = document.getElementById("location-select");
+ 
         
         const valueMap = {
             "museums": "1",
