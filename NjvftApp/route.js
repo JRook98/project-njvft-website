@@ -1,10 +1,8 @@
-
 const routeButton = document.getElementById("route-btn");
 
 const routeModal = document.getElementById("route-modal");
 
-const routeModalContainer =
-    document.getElementById("route-modal-container");
+const routeModalContainer = document.getElementById("route-modal-container");
 
 // When the Get Route button is clicked
 routeButton.addEventListener("click", function () {
@@ -25,12 +23,12 @@ routeButton.addEventListener("click", function () {
 
             // Put RouteInfo.html inside the modal
             routeModalContainer.innerHTML = html;
+
             // Show the modal
             routeModal.style.display = "flex";
 
             // Grab the close button from RouteInfo.html
-            const closeButton =
-                document.getElementById("close-route-btn");
+            const closeButton = document.getElementById("close-route-btn");
 
             // Close modal when X is clicked
             closeButton.addEventListener("click", function () {
