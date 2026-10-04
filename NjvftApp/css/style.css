@@ -9,10 +9,6 @@ body {
     min-height: 100vh;
 }
 
-
-
-
-
 /* Header CSS */
 
 header {
@@ -86,10 +82,77 @@ header img {
         border-color: lightblue;
     }
 
+/*About Modal Styling */
+	#aboutModal {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 1000;
+		overflow: auto;
+	}
 
+	#aboutModal .modal-wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100%;
+		padding: 20px;
+		box-sizing: border-box;
+	}
 
+	#aboutModal .modal-content {
+		background-color: white;
+		padding: 30px;
+		border-radius: 8px;
+		max-width: 500px;
+		width: 90%;
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+		position: relative;
+		box-sizing: border-box;
+	}
 
+	#aboutModal .modal-content h2 {
+		margin-top: 0;
+		color: green;
+	}
 
+	#aboutModal .close {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		background: none;
+		border: none;
+		font-size: 24px;
+		cursor: pointer;
+		color: #888;
+		line-height: 1;
+	}
+
+	#aboutModal .close:hover,
+	.close:focus {
+		color: #333;
+		text-decoration: none;
+	}
+
+	#aboutModal .modal-footer-btn {
+		margin-top: 20px;
+		padding: 10px 20px;
+		background-color: green;
+		color: white;
+		border: none;
+		border-radius: 4px;
+		font-weight: bold;
+		cursor: pointer;
+		float: right;
+	}
+
+	#aboutModal .modal-footer-btn:hover {
+		background-color: darkgreen;
+	}
 
 /* To create the two-columns */
 .content-layout {
@@ -102,10 +165,6 @@ header img {
     box-sizing: border-box;
     flex: 1; 
 }
-
-
-
-
 
 /* Left column styling for the dropdown */
 .left-column {
@@ -146,10 +205,6 @@ header img {
     background-color: lightblue;
 }
 
-
-
-
-
 /* Container to center and size the map */
 #map-container {
     flex: 7; 
@@ -163,10 +218,6 @@ header img {
     border: 1px solid #ccc;
     border-radius: 8px;
 }
-
-
-
-
 
 /* Footer CSS */
 footer {
@@ -182,10 +233,6 @@ footer {
     box-sizing: border-box;
     margin-top: auto;
 }
-
-
-
-
 
 /* route.js / info.js CSS */
 
@@ -353,10 +400,6 @@ footer {
         border-top: 1px solid #ccc;
     }
 
-
-
-
-
 /* LandmarkInfo.html CSS */
 
         .image-content {
@@ -382,9 +425,6 @@ footer {
         .description-box {
             margin-bottom: 35px;
         }
-
-
-
 
 
 /* Star Rating CSS */
