@@ -6,6 +6,18 @@
 <!-- Header -->
 <?php require 'includes/header.php';?>
 
+    <!-- About Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-wrapper">
+            <div class="modal-content">
+                <span class="close" onclick="closeAboutModal()">&times;</span>
+                <div id="aboutModalContent"></div>
+                <button class="modal-footer-btn" onclick="closeAboutModal()">Close</button>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Layout Wrapper -->
     <div class="content-layout">
         <!-- Left Column with Dropdown Menu -->
