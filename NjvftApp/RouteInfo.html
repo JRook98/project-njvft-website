@@ -1,121 +1,5 @@
 <!-- Route Information Modal Content -->
 
-<style>
-
-    /* Route modal content styling */
-    .route-modal-content {
-        position: relative;
-        width: 100%;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background-color: aliceblue;
-    }
-
-
-    /* Route modal title */
-    .route-modal-content h2 {
-        margin-top: 0;
-        margin-bottom: 20px;
-    }
-
-
-    /* Close button styling */
-    .close-route-btn {
-        position: absolute;
-        right: 0;
-        top: 0;
-        font-size: 24px;
-        font-weight: bold;
-        background-color: white;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-
-    /* Close button hover */
-    .close-route-btn:hover {
-        background-color: lightblue;
-    }
-
-
-    /* Container styling for route inputs */
-    .route-input-group {
-        width: 100%;
-        margin: 25px 0;
-        text-align: left;
-    }
-
-
-    /* Route input label styling */
-    .route-input-group label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: bold;
-    }
-
-
-    /* Route dropdown styling */
-    .route-input-group select {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        font-weight: bold;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-
-
-    /* Route dropdown hover */
-    .route-input-group select:hover {
-        background-color: lightblue;
-        cursor: pointer;
-    }
-
-
-    /* Get Directions and Clear Route button styling */
-    #get-directions-btn,
-    #clear-route-btn {
-        width: 100%;
-        padding: 12px 24px;
-        font-size: 16px;
-        font-weight: bold;
-        background-color: green;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-
-    /* Route button hover */
-    #get-directions-btn:hover,
-    #clear-route-btn:hover {
-        background-color: lightblue;
-        color: black;
-    }
-
-
-    /* Error message styling */
-    #route-error {
-        color: red;
-        font-weight: bold;
-        margin: 20px 0;
-    }
-
-
-    /* Route results styling */
-    #route-results {
-        margin: 25px 0;
-        padding-top: 15px;
-        border-top: 1px solid #ccc;
-    }
-
-</style>
-
-
 <div class="route-modal-content">
 
     <!-- Close Route Button -->
@@ -204,3 +88,67 @@
     </button>
 
 </div>
+<script>
+    
+const routeButton = document.getElementById("route-btn");
+
+const routeModal = document.getElementById("route-modal");
+
+const routeModalContainer = document.getElementById("route-modal-container");
+
+// When the Get Route button is clicked
+routeButton.addEventListener("click", function () {
+
+    // Load RouteInfo.html
+    fetch("RouteInfo.html")
+
+        .then(response => {
+
+            if (!response.ok) {
+                throw new Error("Unable to load RouteInfo.html");
+            }
+
+            return response.text();
+        })
+
+        .then(html => {
+
+            // Put RouteInfo.html inside the modal
+            routeModalContainer.innerHTML = html;
+            
+            // Show the modal
+            routeModal.style.display = "flex";
+
+            // Grab the close button from RouteInfo.html
+            const closeButton =
+                document.getElementById("close-route-btn");
+
+            // Close modal when X is clicked
+            closeButton.addEventListener("click", function () {
+
+                routeModal.style.display = "none";
+
+            });
+
+        })
+
+        .catch(error => {
+
+            console.error("Error loading Route modal:", error);
+
+        });
+
+});
+
+
+// Close modal when clicking outside of the modal box
+routeModal.addEventListener("click", function (event) {
+
+    if (event.target === routeModal) {
+
+        routeModal.style.display = "none";
+
+    }
+
+});
+</script>
