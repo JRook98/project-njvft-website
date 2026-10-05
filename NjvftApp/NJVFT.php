@@ -6,18 +6,6 @@
 <!-- Header -->
 <?php require 'includes/header.php';?>
 
-    <!-- About Modal -->
-    <div id="aboutModal" class="modal">
-        <div class="modal-wrapper">
-            <div class="modal-content">
-                <span class="close" onclick="closeAboutModal()">&times;</span>
-                <div id="aboutModalContent"></div>
-                <button class="modal-footer-btn" onclick="closeAboutModal()">Close</button>
-                <div style="clear: both;"></div>
-            </div>
-        </div>
-    </div>
-
     <!-- Main Layout Wrapper -->
     <div class="content-layout">
         <!-- Left Column with Dropdown Menu -->
@@ -41,6 +29,18 @@
         </div>
     </div>
 
+ <!-- About Modal -->
+    <div id="about-modal" class="modal">
+        <div class="about-modal-container">
+            <div class="about-modal-content">
+                <span class="close-about-btn" onclick="closeAboutModal()">&times;</span>
+                <div id="aboutModalContent"></div>
+                <button class="modal-footer-btn" onclick="closeAboutModal()">Close</button>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+    </div>
+
 <!-- Route Modal -->
 <div id="route-modal" class="route-modal">
 
@@ -60,6 +60,9 @@
 
 <!-- Footer -->
 <?php require 'includes/footer.php';?>
+
+<!-- Loads javascript file for the About modal -->
+<script src="about.js"></script>
 
 <!-- Loads javascript file for the Info modal -->
 <script src="info.js"></script>
