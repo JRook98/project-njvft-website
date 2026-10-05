@@ -82,8 +82,9 @@ header img {
         border-color: lightblue;
     }
 
+
 /*About Modal Styling */
-	#aboutModal {
+	#about-modal {
 		display: none;
 		position: fixed;
 		top: 0;
@@ -95,7 +96,7 @@ header img {
 		overflow: auto;
 	}
 
-	#aboutModal .modal-wrapper {
+	.about-modal-container {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -104,7 +105,7 @@ header img {
 		box-sizing: border-box;
 	}
 
-	#aboutModal .modal-content {
+	.about-modal-content {
 		background-color: white;
 		padding: 30px;
 		border-radius: 8px;
@@ -115,12 +116,12 @@ header img {
 		box-sizing: border-box;
 	}
 
-	#aboutModal .modal-content h2 {
+	.about-modal-content h2 {
 		margin-top: 0;
 		color: green;
 	}
 
-	#aboutModal .close {
+	.close-about-btn {
 		position: absolute;
 		top: 15px;
 		right: 15px;
@@ -132,13 +133,13 @@ header img {
 		line-height: 1;
 	}
 
-	#aboutModal .close:hover,
+	.close-about-btn:hover,
 	.close:focus {
 		color: #333;
 		text-decoration: none;
 	}
 
-	#aboutModal .modal-footer-btn {
+	.modal-footer-btn {
 		margin-top: 20px;
 		padding: 10px 20px;
 		background-color: green;
@@ -150,7 +151,7 @@ header img {
 		float: right;
 	}
 
-	#aboutModal .modal-footer-btn:hover {
+	.modal-footer-btn:hover {
 		background-color: darkgreen;
 	}
 
