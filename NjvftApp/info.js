@@ -80,8 +80,16 @@ function attachModalToMarker(markerObject, mapObject, place) {
 /* Function setupStarRatingSystem generates, renders, and validates processing for star elements */
 function setupStarRatingSystem(place) {
 
-    // Layout for the 5 stars and submit button 
+    // Format display string if no ratings exist yet
+    const displayRating = place.avg_rating > 0 ? `${place.avg_rating} / 5` : "Unrated";
+    const reviewCountText = place.total_ratings === 1 ? "1 rating" : `${place.total_ratings} ratings`;
+
+
+    // Layout for the 5 stars, average rating, and submit button 
     var myRating = `
+        <div id="average-rating-summary" style="margin-bottom: 12px; font-size: 15px; font-weight: bold; color: #333;">
+            Average Rating: <span style="color: #d4af37;">★</span> ${displayRating} (${reviewCountText})
+        </div>
         <div id="stars-row">
             <span id="star1" class="fa fa-star" style="color:blue; margin-right: 5px;"></span>
             <span id="star2" class="fa fa-star" style="color:blue; margin-right: 5px;"></span>
@@ -126,14 +134,12 @@ function setupStarRatingSystem(place) {
     const submitBtn = document.getElementById("submitBtn");
     const messageNode = document.getElementById("star-rating-message");
 
-    // When user clicks submit button
+      // When user clicks submit button
     if (submitBtn) {
         submitBtn.addEventListener("click", function() {
 
             // If user hasn't selected a valid star rating
             if (selectedRating === 0) {
-
-                // Unsuccessful message
                 if (messageNode) {
                     messageNode.style.color = "red";
                     messageNode.innerText = "Please select a star rating before submitting!";
@@ -141,11 +147,44 @@ function setupStarRatingSystem(place) {
                 return;
             }
 
-            // Successful message
+            // Disable button to prevent double submissions
+            submitBtn.disabled = true;
             if (messageNode) {
-                messageNode.style.color = "green";
-                messageNode.innerText = `Thank you! You rated ${place.name || 'this landmark'} ${selectedRating} out of 5 stars.`;
+                messageNode.style.color = "orange";
+                messageNode.innerText = "Submitting your rating...";
             }
+
+            // Send data to update_rating.php
+            fetch("update_rating.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    landmark_id: place.landmark,
+                    rating_val: selectedRating
+                })
+            })
+            .then(response => response.json())
+
+            .then(data => {
+                if (data.success) {
+                    if (messageNode) {
+                        messageNode.style.color = "green";
+                        messageNode.innerText = `Thank you! You rated ${place.name || 'this landmark'} ${selectedRating} out of 5 stars.`;
+                    }
+                } else {
+                    throw new Error(data.message || "Server processed request with errors.");
+                }
+            })
+            .catch(error => {
+                console.error("Error updating rating:", error);
+                submitBtn.disabled = false; // Re-enable if it fails
+                if (messageNode) {
+                    messageNode.style.color = "red";
+                    messageNode.innerText = "Failed to save rating. Please try again.";
+                }
+            });
         });
     }
 }
