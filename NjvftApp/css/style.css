@@ -167,6 +167,7 @@ header img {
 	height: calc(100% - 400px);
 	flex-grow: 1;
 	align-items: stretch;
+    background-color: lavender;
 }
 
 /* Left column styling for the dropdown */
@@ -221,7 +222,7 @@ header img {
 
 #map {
     width: 100%;
-    height: 500px;    
+    height: 100%;    
 }
 
 /* Footer CSS */
