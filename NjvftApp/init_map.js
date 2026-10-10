@@ -15,7 +15,7 @@
 
       // Fetches document element with id: "map" to create a new google map, "mapObject", with bounds and restrictions
  	const mapObject = new google.maps.Map(document.getElementById("map"), {
- 		zoom: 0,
+ 		zoom: 8,
  		maxZoom: 11,
  		center: MAP_CENTER,
  		restriction: {latLngBounds: MAP_BOUNDS, strictBounds: false}
