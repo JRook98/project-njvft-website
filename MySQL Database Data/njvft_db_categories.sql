@@ -25,7 +25,6 @@ DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
   `category_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
-  `marker_icon_url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`category_id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
@@ -37,7 +36,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Museums',NULL),(2,'Beaches',NULL),(3,'Historic Villages',NULL);
+INSERT INTO `categories` VALUES (2,'Beaches'),(3,'Historic Villages'),(1,'Museums');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-23 22:48:06
+-- Dump completed on 2026-10-13 14:19:33
