@@ -30,7 +30,7 @@ CREATE TABLE `ratings` (
   PRIMARY KEY (`rating_id`),
   KEY `fk_ratings_landmarks` (`landmark_id`),
   CONSTRAINT `fk_ratings_landmarks` FOREIGN KEY (`landmark_id`) REFERENCES `landmarks` (`landmark_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,7 @@ CREATE TABLE `ratings` (
 
 LOCK TABLES `ratings` WRITE;
 /*!40000 ALTER TABLE `ratings` DISABLE KEYS */;
+INSERT INTO `ratings` VALUES (1,1,5,'2026-10-12 22:07:28');
 /*!40000 ALTER TABLE `ratings` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-23 22:48:06
+-- Dump completed on 2026-10-13 14:19:33
