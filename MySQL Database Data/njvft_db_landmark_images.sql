@@ -26,12 +26,10 @@ CREATE TABLE `landmark_images` (
   `image_id` int(11) NOT NULL AUTO_INCREMENT,
   `landmark_id` int(11) NOT NULL,
   `image_url` varchar(255) NOT NULL,
-  `caption` varchar(255) DEFAULT NULL,
-  `is_primary` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`image_id`),
   KEY `fk_images_landmarks` (`landmark_id`),
   CONSTRAINT `fk_images_landmarks` FOREIGN KEY (`landmark_id`) REFERENCES `landmarks` (`landmark_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +38,7 @@ CREATE TABLE `landmark_images` (
 
 LOCK TABLES `landmark_images` WRITE;
 /*!40000 ALTER TABLE `landmark_images` DISABLE KEYS */;
-INSERT INTO `landmark_images` VALUES (1,1,'https://uc.orez.io/f/09e80e39dcd147fd8c1c947132cc3e19',NULL,0),(2,2,'https://eu-images.contentstack.com/v3/assets/blt8634bd701c67871e/blt6b13eec58fc185a0/67d811cb5ab3852b1ad6b875/main_image.jpeg',NULL,0);
+INSERT INTO `landmark_images` VALUES (1,1,'https://uc.orez.io/f/09e80e39dcd147fd8c1c947132cc3e19'),(2,2,'https://eu-images.contentstack.com/v3/assets/blt8634bd701c67871e/blt6b13eec58fc185a0/67d811cb5ab3852b1ad6b875/main_image.jpeg'),(3,3,'https://visitnj.org/sites/default/files/Exterior%20edit%20June%2027.23%20001.JPG'),(4,4,'https://visitnj.org/sites/default/files/2022-01/20090508NEWJERSEY-0690_Cropped_0.jpg'),(5,5,'https://upload.wikimedia.org/wikipedia/commons/3/3c/MansionBatstoNJ.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original'),(6,6,'https://dep.nj.gov/wp-content/uploads/parksandforests//wl6.jpg');
 /*!40000 ALTER TABLE `landmark_images` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-23 22:48:05
+-- Dump completed on 2026-10-13 14:19:33
