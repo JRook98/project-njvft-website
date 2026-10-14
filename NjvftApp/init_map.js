@@ -37,6 +37,9 @@
  				lng: position.coords.longitude
  			};
 
+            // Save user position globally for routing functionality
+            window.userPosition = userPos;
+
         // Place a marker at the user's device location
  			currentMarker = new google.maps.Marker({
  				position: userPos,
@@ -50,25 +53,6 @@
  		},
  	);
  	} 
-
- 	// When the google map is clicked...
- 	mapObject.addListener("click", (event) => {
-
-    // If there is currently a marker on the map (like user location), remove it
- 		if (currentMarker) {
- 			currentMarker.setMap(null);
- 		}
-
-    // Place a marker wherever the user clicked.
- 		currentMarker = new google.maps.Marker({
- 			position: event.latLng,
- 			map: mapObject,
-            icon: {
-                url: '/NjvftApp/images/NJVFT_marker_user.png',
-                scaledSize: new google.maps.Size(30, 45)
-            }  
- 		});
- 	});
 
  }
 
@@ -140,6 +124,9 @@
 
         // When user selects a different dropdown option...
         selectMenu.addEventListener("change", (e) => {
+
+            // Clear any route lines and infoboxes if they exist
+            clearActiveRoute(map);
 
             // Grab the value the user selected
             const selectedValue = e.target.value;
