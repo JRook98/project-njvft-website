@@ -20,7 +20,7 @@ header {
     display: flex;
     flex-direction: column;
     position: relative;
-    align-items: flex;
+    align-items: stretch;
     justify-content: space-between;
     min-height: 150px;
     width: 100%;
@@ -42,7 +42,7 @@ header img {
 .header-text h1 {
     margin: 0;
     text-align: center;
-    font-family: inter;
+    font-family: Inter;
     font-size: 50px;
     font-weight: 800;
     letter-spacing: 4px;
@@ -54,7 +54,7 @@ header img {
 .header-text h3 {
     margin: 5px 0 0 0;
     text-align: center;
-    font-family: verdana;
+    font-family: Verdana;
     font-size: 20px;
     font-weight: 400;
     letter-spacing: 3px;
@@ -67,27 +67,58 @@ header img {
         right: 20px;
         top: 15px;
         display: flex;
-        gap: 12px;
+		flex-direction: column;
+		align-items: center;
+        gap: 20px;
         z-index: 2;
     }
 
-    /* Header Buttons Styling */
-    .header-nav button {
-        padding: 8px 18px;
-        font-size: 14px;
-        font-weight: bold;
-        color: black;
-        background-color: white;
-        border: 2px solid white;
-        border-radius: 2px;
-        cursor: pointer;    
-		
-    }
-    /* Header Buttons hover */
-    .header-nav button:hover {
-        background-color: lightblue;            
-        border-color: lightblue;
-    }
+/* Header Buttons Styling */
+	.header-nav button {
+		padding: 8px 18px;
+		font-size: 14px;
+		font-weight: bold;
+		color: black;
+		background-color: white;
+		border: 2px solid white;
+		border-radius: 2px;
+		cursor: pointer;    
+	
+}
+/* Header Buttons hover */
+	.header-nav button:hover {
+		background-color: lightblue;            
+		border-color: lightblue;
+}
+
+/* Header Dropdown Menu Styling */
+	.header-dropdown-menu {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	.header-dropdown-menu label {
+		font-family: inter;
+		font-size: 18px;
+		font-weight: bold;
+		color: white;
+		margin-bottom: 4px;
+	}
+	
+	.header-dropdown-menu select {
+		padding: 6px 12px;
+		font-size: 14px;
+		font-weight: bold;
+		border: 2px solid #ccc;
+		border-radius: 4px;
+		background-color: white;
+		cursor: pointer;
+	}
+	
+	.header-dropdown-menu select:hover {
+		background-color: lightblue;
+	}
 
 /*About Modal Styling */
 	#about-modal {
@@ -161,57 +192,13 @@ header img {
 		background-color: darkgreen;
 	}
 
-/* To create the two-columns */
+/* To create the main column */
 .content-layout {
     display: flex;            
 	height: calc(100% - 400px);
 	flex-grow: 1;
 	align-items: stretch;
     background-color: lavender;
-}
-
-/* Left column styling for the dropdown */
-.left-column {
-    width: 320px;
-	min-width: 250px;
-	padding: 30px 20px;
-	box-sizing: border-box;		
-	border-right: 1px solid #ccc;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	flex-shrink: 0;
-}
-
-.left-column select:hover {
- background-color: lightblue;
- cursor: pointer;
-}
-
-.left-column select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 40px; 
-}
-
-.left-column button {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: white;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.left-column button:hover {
-    background-color: lightblue;
 }
 
 /* Container to center and size the map */
@@ -229,7 +216,7 @@ header img {
 footer {
     width: 100%;		
 	text-align: center;
-	padding: 20px 0;		
+	padding: 10px 0;		
 	background-color: #f1f1f1;		
 	font-size: 14px;
 	color: black;
@@ -402,7 +389,6 @@ footer {
     }
 
 /* LandmarkInfo.html CSS */
-
         .image-content {
             flex: 1 0 auto;
             width: 100%;
@@ -428,7 +414,6 @@ footer {
             padding-right: 35px;
             text-align: left;
         }
-
 
 /* Star Rating CSS */
 
