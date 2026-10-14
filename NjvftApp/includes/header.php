@@ -15,8 +15,19 @@
             <h1>NJVFT</h1>
             <h3>New Jersey Virtual Field Trip</h3>
         </div>
-		<!-- Button(s) in header -->
+		<!-- About Button in header -->
         <nav class="header-nav">            
-            <button onclick="alert('Learn about this page')">About</button>            
+            <button onclick="alert('Learn about this page')">About</button>  
+
+			<!-- Dropdown Menu in header -->	
+			<div class="header-dropdown-menu">
+				<label for="location-select">NJ Landmark Options</label>
+				<select id="location-select">
+					<option value="all">All Landmarks</option>
+					<option value="beaches">Beaches</option>
+					<option value="museums">Museums</option>
+					<option value="historic-villages">Historic Villages</option>
+				</select>
+			</div>
         </nav>
     </header>
