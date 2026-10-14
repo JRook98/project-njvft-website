@@ -1,6 +1,6 @@
 <!-- Landmark Information Modal Content -->
 
-<div class="route-modal-content">
+<div class="info-modal-content">
 
     <!-- Close Info Button inside the modal -->
     <button id="close-info-btn" class="close-info-btn">
@@ -28,17 +28,17 @@
     <!-- Official Link -->
     <p>For more information, visit the <a href="{{URL}}" target="_blank">official website!</a></p>
 
-    <!-- Star Rating Space -->
-    <div class="star-rating-box">
-        <p style="margin-top: 50px;">Rate this landmark. Select a star rating from 1 star to 5 stars below. Then click Submit.</p>
-        <div id="star-rating-message" style="margin-top: 15px; font-weight: bold;"></div>
-        <div id="star-rating-root" class="rating-container" style="margin: 20px 0; font-size: 24px; cursor: pointer;"></div>
+        <!-- Route Button -->
+    <div class="route-button-box" style="margin-top: 50px; text-align: center;">
+        <label for="route-btn" style="display: block; margin-bottom: 8px; font-weight: bold;">Click the button below for driving directions</label>
+        <button id="route-btn" style="padding: 12px 24px; font-size: 16px; font-weight: bold; background-color: blue; color: white; border: none; border-radius: 4px; cursor: pointer;">Get Route</button>
     </div>
 
-    <!-- Route Button -->
-    <div class="route-button-box" style="margin-top: 125px; text-align: center;">
-        <label for="route-btn" style="display: block; margin-bottom: 8px; font-weight: bold;">Click the Button Below for Driving Directions</label>
-        <button id="route-btn">Get Route</button>
+    <!-- Star Rating Space -->
+    <div class="star-rating-box">
+        <p style="margin-top: 50px;">Did you enjoy exploring this landmark? Leave a rating below!</p>
+        <div id="star-rating-message" style="margin-top: 15px; font-weight: bold;"></div>
+        <div id="star-rating-root" class="rating-container" style="margin: 20px 0; font-size: 24px; cursor: pointer;"></div>
     </div>
     
 </div>
