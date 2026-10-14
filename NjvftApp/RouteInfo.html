@@ -1,154 +1,100 @@
-<!-- Route Information Modal Content -->
+let directionsRendererInstance = null;
 
-<div class="route-modal-content">
+let routeInfoBoxInstance = null;
 
-    <!-- Close Route Button -->
-    <button id="close-route-btn" class="close-route-btn">
-        &times;
-    </button>
+// Function calculateAndDisplayRoute() handles displaying route from current device location to selected landmark, along with time and distance information.
+function calculateAndDisplayRoute(place, mapObject) {
 
-    <h2>Plan Your Route</h2>
-
-    <p>
-        Select your starting location and destination.
-    </p>
-
-
-    <!-- Starting Route Location -->
-    <div class="route-input-group">
-
-        <label for="start-location">
-            Starting Location
-        </label>
-
-        <select id="start-location">
-
-            <option value="current">
-                My Current Location
-            </option>
-
-            <option value="map">
-                Location Selected on Map
-            </option>
-
-        </select>
-
-    </div>
-
-
-    <!-- Destination -->
-    <div class="route-input-group">
-
-        <label for="route-destination">
-            Destination
-        </label>
-
-        <select id="route-destination">
-
-            <option value="">
-                Select a Landmark
-            </option>
-
-        </select>
-
-    </div>
-
-
-    <!-- Route Button -->
-    <button id="get-directions-btn">
-        Get Directions
-    </button>
-
-
-    <!-- Error Message -->
-    <p id="route-error"></p>
-
-
-    <!-- Dynamic Route Results -->
-    <div id="route-results">
-
-        <h3>Route Information</h3>
-
-        <p>
-            <strong>Distance:</strong>
-            <span id="route-distance">--</span>
-        </p>
-
-        <p>
-            <strong>Estimated Drive Time:</strong>
-            <span id="route-time">--</span>
-        </p>
-
-    </div>
-
-
-    <!-- Clear Route Button -->
-    <button id="clear-route-btn">
-        Clear Route
-    </button>
-
-</div>
-<script>
-    
-const routeButton = document.getElementById("route-btn");
-
-const routeModal = document.getElementById("route-modal");
-
-const routeModalContainer = document.getElementById("route-modal-container");
-
-// When the Get Route button is clicked
-routeButton.addEventListener("click", function () {
-
-    // Load RouteInfo.html
-    fetch("RouteInfo.html")
-
-        .then(response => {
-
-            if (!response.ok) {
-                throw new Error("Unable to load RouteInfo.html");
-            }
-
-            return response.text();
-        })
-
-        .then(html => {
-
-            // Put RouteInfo.html inside the modal
-            routeModalContainer.innerHTML = html;
-            
-            // Show the modal
-            routeModal.style.display = "flex";
-
-            // Grab the close button from RouteInfo.html
-            const closeButton =
-                document.getElementById("close-route-btn");
-
-            // Close modal when X is clicked
-            closeButton.addEventListener("click", function () {
-
-                routeModal.style.display = "none";
-
-            });
-
-        })
-
-        .catch(error => {
-
-            console.error("Error loading Route modal:", error);
-
-        });
-
-});
-
-
-// Close modal when clicking outside of the modal box
-routeModal.addEventListener("click", function (event) {
-
-    if (event.target === routeModal) {
-
-        routeModal.style.display = "none";
-
+    // Check if the user location was saved successfully
+    if (!window.userPosition) {
+        alert("Unable to calculate route: Please enable your device's location to use driving directions.");
+        return;
     }
 
-});
-</script>
+    // Remove any existing floating travel info panel from previous routes
+    if (routeInfoBoxInstance && mapObject.controls[google.maps.ControlPosition.TOP_CENTER].getLength() > 0) {
+        mapObject.controls[google.maps.ControlPosition.TOP_CENTER].clear();
+    }
+
+    // Initialize or re-use the Google Directions Renderer
+    if (!directionsRendererInstance) {
+        directionsRendererInstance = new google.maps.DirectionsRenderer({
+            suppressMarkers: true,
+            polylineOptions: {
+                strokeColor: "#0000FF", // Forces a classic blue route line
+                strokeWeight: 6,
+                strokeOpacity: 0.7
+            }
+        });
+    }
+    
+    directionsRendererInstance.setMap(mapObject);
+
+    const directionsService = new google.maps.DirectionsService();
+
+    // Configure the routing request parameters
+    const request = {
+        origin: new google.maps.LatLng(window.userPosition.lat, window.userPosition.lng),
+        destination: new google.maps.LatLng(place.lat, place.lng),
+        travelMode: google.maps.TravelMode.DRIVING // Calculates driving path
+    };
+
+    // Query the Google Maps Routing API
+    directionsService.route(request, function (result, status) {
+        if (status === google.maps.DirectionsStatus.OK) {
+            // Draws the blue path line
+            directionsRendererInstance.setDirections(result);
+
+            // Real-time duration and distance text
+            const routeLeg = result.routes[0].legs[0];
+            const travelDuration = routeLeg.duration.text; // e.g., "45 mins"
+            const travelDistance = routeLeg.distance.text; // e.g., "28.4 mi"
+
+            // Create a styled floating UI container box directly on the map surface
+            const infoBox = document.createElement("div");
+            infoBox.style.backgroundColor = "white";
+            infoBox.style.padding = "12px 18px";
+            infoBox.style.margin = "10px";
+            infoBox.style.border = "1px solid #ccc";
+            infoBox.style.borderRadius = "8px";
+            infoBox.style.boxShadow = "0px 2px 6px rgba(0,0,0,0.3)";
+            infoBox.style.fontFamily = "Arial, sans-serif";
+            infoBox.style.fontSize = "14px";
+            infoBox.style.color = "#333";
+            infoBox.style.fontWeight = "bold";
+            infoBox.style.textAlign = "center";
+            infoBox.style.zIndex = "999";
+            
+            // Set dynamic markup text contents
+            infoBox.innerHTML = `
+                <div style="color: #0000FF; font-size: 16px; margin-bottom: 4px;">Driving Directions</div>
+                <div>🕒 Time: <span style="font-weight: normal; color: #555;">${travelDuration}</span></div>
+                <div>📍 Distance: <span style="font-weight: normal; color: #555;">${travelDistance}</span></div>
+            `;
+
+            // Save instance handle reference globally
+            routeInfoBoxInstance = infoBox;
+
+            // Push infoBox to the top center of the Google Map
+            mapObject.controls[google.maps.ControlPosition.TOP_CENTER].push(infoBox);
+
+        } else {
+            alert("Could not display driving directions for this route layout.");
+        }
+    });
+}
+
+// Function clearActiveRoute() removes the blue route line and infobox when user selects a new landmark type
+function clearActiveRoute(mapObject) {
+    if (directionsRendererInstance) {
+        directionsRendererInstance.setMap(null);
+        directionsRendererInstance = null;
+    }
+
+    if (mapObject && mapObject.controls && mapObject.controls[google.maps.ControlPosition.TOP_CENTER]) {
+        if (mapObject.controls[google.maps.ControlPosition.TOP_CENTER].getLength() > 0) {
+            mapObject.controls[google.maps.ControlPosition.TOP_CENTER].clear();
+        }
+        routeInfoBoxInstance = null;
+    }
+}
