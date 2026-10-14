@@ -15,9 +15,10 @@
             <h1>NJVFT</h1>
             <h3>New Jersey Virtual Field Trip</h3>
         </div>
+        
 		<!-- About Button in header -->
         <nav class="header-nav">            
-            <button onclick="alert('Learn about this page')">About</button>  
+ 			<button onclick="openAboutModal()">About</button> 
 
 			<!-- Dropdown Menu in header -->	
 			<div class="header-dropdown-menu">
