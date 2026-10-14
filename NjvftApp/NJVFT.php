@@ -7,22 +7,8 @@
 <?php require 'includes/header.php';?>
 
     <!-- Main Layout Wrapper -->
-    <div class="content-layout">
-        <!-- Left Column with Dropdown Menu -->
-        <div class="left-column">
-            <label for="location-select" style="display: block; margin-bottom: 8px; font-weight: bold; text-align: center">NJ Landmark Options</label>
-            <select id="location-select">
-                <option value="all">All Landmarks</option>
-                <option value="beaches">Beaches</option>
-                <option value="museums">Museums</option>
-                <option value="historic-villages">Historic Villages</option>
-            </select>
-            
-            <!-- Route button Label -->
-            <label for="route-btn" style="display: block; margin-top: 125px; margin-bottom: 8px; font-weight: bold; text-align: center">Click the Button Below for Driving Directions</label>
-            <button id="route-btn">Get Route</button>            
-        </div>
-
+    <div class="content-layout">  
+        
         <!-- Map rendering container -->
         <div id="map-container">
             <div id="map"></div>
