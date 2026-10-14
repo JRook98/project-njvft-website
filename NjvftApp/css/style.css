@@ -222,10 +222,10 @@ footer {
 	color: black;
 }
 
-/* route.js / info.js CSS */
+/* info.js CSS */
 
 /* Route/Info Modal Background */
-.route-modal, .info-modal {
+.info-modal {
     display: none;
     position: fixed;
     top: 0;
@@ -238,19 +238,6 @@ footer {
     z-index: 1000;
 }
 
-/* Route Modal Container */
-#route-modal-container {
-    width: 500px;
-    max-width: 90%;
-    max-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    background-color: aliceblue;
-    padding: 30px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
 
 /* Info Modal Container */
 #info-modal-container {
@@ -266,8 +253,8 @@ footer {
     box-sizing: border-box;
 }
 
-/* Route/Info modal content styling */
-    .route-modal-content, .info-modal-content {
+/* Info modal content styling */
+    .info-modal-content {
         position: relative;
         width: 100%;
         box-sizing: border-box;
@@ -279,7 +266,6 @@ footer {
         overflow-y: auto;
     }
 
-    .route-modal-content img, 
     .info-modal-content img {
         max-width: 100%;
         height: auto;
@@ -288,15 +274,15 @@ footer {
     }
 
 
-    /* Route/Info modal title */
-    .route-modal-content h2, .info-modal-content h2 {
+    /* Info modal title */
+    .info-modal-content h2 {
         margin-top: 0;
         margin-bottom: 20px;
     }
 
 
     /* Close button styling */
-    .close-route-btn, .close-info-btn {
+    .close-info-btn {
         position: absolute;
         right: 0;
         top: 0;
@@ -310,83 +296,10 @@ footer {
 
 
     /* Close button hover */
-    .close-route-btn:hover, .close-info-btn:hover{
+    .close-info-btn:hover{
         background-color: lightblue;
     }
 
-
-    /* Container styling for route inputs */
-    .route-input-group {
-        width: 100%;
-        margin: 25px 0;
-        text-align: left;
-    }
-
-
-    /* Route input label styling */
-    .route-input-group label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: bold;
-    }
-
-
-    /* Route dropdown styling */
-    .route-input-group select {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        font-weight: bold;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-
-
-    /* Route dropdown hover */
-    .route-input-group select:hover {
-        background-color: lightblue;
-        cursor: pointer;
-    }
-
-
-    /* Get Directions and Clear Route button styling */
-    #get-directions-btn,
-    #clear-route-btn {
-        width: 100%;
-        padding: 12px 24px;
-        font-size: 16px;
-        font-weight: bold;
-        background-color: green;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-
-    /* Route button hover */
-    #get-directions-btn:hover,
-    #clear-route-btn:hover {
-        background-color: lightblue;
-        color: black;
-    }
-
-
-    /* Route Error message styling */
-    #route-error {
-        color: red;
-        font-weight: bold;
-        margin: 20px 0;
-    }
-
-
-    /* Route results styling */
-    #route-results {
-        margin: 25px 0;
-        padding-top: 15px;
-        border-top: 1px solid #ccc;
-    }
 
 /* LandmarkInfo.html CSS */
         .image-content {
