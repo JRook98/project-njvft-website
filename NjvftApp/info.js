@@ -42,6 +42,14 @@ function attachModalToMarker(markerObject, mapObject, place) {
                 // Display Average Star Rating
                 setupStarRatingSystem(place);
 
+                const routeButton = document.getElementById("route-btn");
+                    if (routeButton) {
+                        routeButton.addEventListener("click", function () {
+                        infoModal.style.display = "none";
+                        calculateAndDisplayRoute(place, mapObject);
+                        });
+                    }
+
                 // Show the modal
                 infoModal.style.display = "flex";
 
