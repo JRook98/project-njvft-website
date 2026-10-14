@@ -27,14 +27,6 @@
         </div>
     </div>
 
-<!-- Route Modal -->
-<div id="route-modal" class="route-modal">
-
-    <div id="route-modal-container">
-        <!-- RouteInfo.html will be loaded here -->
-    </div>
-</div>
-
 <!-- Info Modal -->
 <div id="info-modal" class="info-modal">
 
@@ -53,7 +45,7 @@
 <!-- Loads javascript file for the Info modal -->
 <script src="info.js"></script>
 
-<!-- Loads javascript file for the Route modal -->
+<!-- Loads javascript file for the routing functionality -->
 <script src="route.js"></script>
 
 <!-- Loads javascript file that initializes the google map, sets the bounds of the google map, and places landmark markers from the database-->
