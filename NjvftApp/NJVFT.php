@@ -51,8 +51,11 @@
 <!-- Loads javascript file that initializes the google map, sets the bounds of the google map, and places landmark markers from the database-->
 <script src="init_map.js"></script>
 
+<!-- Fetches Google Maps API Key securely from config.php -->
+<?php include 'includes/config.php'; ?>
+
 <!-- Loads Google Maps API and calls the initMap() function in the "init_map.js" file -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Ep4rBtq2tecPJgVqHYS9vt6vKwFLFuE&callback=initMap" async defer> </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo htmlspecialchars(GOOGLE_MAPS_API_KEY, ENT_QUOTES, 'UTF-8'); ?>&callback=initMap" async defer></script>
 
 </body>
 </html>
