@@ -19,19 +19,19 @@ body, html {
 header {
     display: flex;
     flex-direction: column;
-    position: fixed;
+    position: relative;
     align-items: stretch;
     justify-content: space-between;
     min-height: 150px;
     width: 100%;
     background-color: green;
-	background-image: url("Cape_May_Lighthouse.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
+    background-image: url("Cape_May_Lighthouse.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     padding: 1rem 2rem;
     box-sizing: border-box;
-	z-index: 100;
+    z-index: 100;
 }
 
 header img {
