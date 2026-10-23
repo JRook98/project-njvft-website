@@ -48,6 +48,8 @@ header img {
     letter-spacing: 4px;
     color: white;
     text-transform: uppercase;
+    animation: headerTextSlideDown 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    opacity: 0; /* Starts hidden, slides into view */
 }
 
 /* Header: New Jersey Virtual Field Trip text styling */
@@ -58,7 +60,22 @@ header img {
     font-size: 22px;
     font-weight: 400;
     letter-spacing: 3px;
-    color: white;            
+    color: white;     
+    animation: headerTextSlideDown 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    opacity: 0; /* Starts hidden, slides into view */
+       
+}
+
+/* Header Text Animation */
+@keyframes headerTextSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Header Buttons */
@@ -211,6 +228,7 @@ header img {
     width: 100%;
     height: 100%;    
 }
+
 
 /* Footer CSS */
 footer {
