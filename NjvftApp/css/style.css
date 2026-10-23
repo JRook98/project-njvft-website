@@ -61,10 +61,16 @@ header img {
     font-weight: 400;
     letter-spacing: 3px;
     color: white;     
-    animation: headerTextSlideDown 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    opacity: 0; /* Starts hidden, slides into view */
-       
+    transform: translateY(20px);
+    opacity: 0; 
+    transition: opacity 0.8s ease-in-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
+.header-text h3.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 /* Header Text Animation */
 @keyframes headerTextSlideDown {
