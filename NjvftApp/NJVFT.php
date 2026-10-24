@@ -6,6 +6,37 @@
 <!-- Header -->
 <?php require 'includes/header.php';?>
 
+<!-- Scrolling images below header -->
+    <div class="scroll-container">
+      <div class="scroll-track">
+        <!-- Original Set of Images -->
+        <img src="Cape_May_Lighthouse_og.jpg" alt="Cape May">
+        <img src="Cape_May_Lighthouse2.jpg" alt="Cape May 2">
+        <img src="MansqnBeach1.jpeg" alt="Manasquan Beach">
+        <img src="MansqnBeach2.jpeg" alt="Manasquan Beach">
+        <img src="MansqnBeach3.jpeg" alt="Manasquan Beach">
+        
+        <!-- Duplicate Sets to create a seamless loop. -->
+        <img src="Cape_May_Lighthouse_og.jpg" alt="Cape May">
+        <img src="Cape_May_Lighthouse2.jpg" alt="Cape May 2">
+        <img src="MansqnBeach1.jpeg" alt="Manasquan Beach">
+        <img src="MansqnBeach2.jpeg" alt="Manasquan Beach">
+        <img src="MansqnBeach3.jpeg" alt="Manasquan Beach">
+        
+        <img src="Cape_May_Lighthouse_og.jpg" alt="Cape May">
+        <img src="Cape_May_Lighthouse2.jpg" alt="Cape May 2">
+        <img src="MansqnBeach1.jpeg" alt="Manasquan Beach">
+        <img src="MansqnBeach2.jpeg" alt="Manasquan Beach">
+        <img src="MansqnBeach3.jpeg" alt="Manasquan Beach">
+        
+        <img src="Cape_May_Lighthouse_og.jpg" alt="Cape May">
+        <img src="Cape_May_Lighthouse2.jpg" alt="Cape May 2">
+        <img src="MansqnBeach1.jpeg" alt="Manasquan Beach">
+        <img src="MansqnBeach2.jpeg" alt="Manasquan Beach">
+        <img src="MansqnBeach3.jpeg" alt="Manasquan Beach">
+      </div>
+    </div>
+
     <!-- Main Layout Wrapper -->
     <div class="content-layout">  
         <div class="left-panel">
