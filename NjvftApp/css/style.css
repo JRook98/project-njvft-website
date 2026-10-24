@@ -147,6 +147,43 @@ header img {
 	.header-dropdown-menu select:hover {
 		background-color: lightblue;
 	}
+	/* Scrolling images CSS */
+	div.scroll-container {
+		background-color: lavender;
+		overflow: hidden;
+		white-space: nowrap;
+		width: 100%;
+		margin-top: 150px; 
+		padding: 4px 0;
+	}
+	
+	.scroll-track {
+		display: inline-flex;	  
+		animation: scrollLoop 20s linear infinite; /* Note: to increase or decrease the speed, adjust the number in '20s' */
+	}
+	
+	.scroll-track img {
+		margin: 0;
+		height: 100px;
+		width: 200px;
+		object-fit: cover;
+		flex-shrink: 0;
+	}
+	
+	/* Keyframes to move the track */
+	@keyframes scrollLoop {
+	  0% {
+		transform: translateX(-50%);
+	  }
+	  100% {
+		transform: translateX(0); 
+	  }
+	}
+	
+	/* To pause the auto-scrolling, if user hovers over it */
+	.scroll-track:hover {
+		animation-play-state: paused;
+	}
 
 /*About Modal Styling */
 	#about-modal {
