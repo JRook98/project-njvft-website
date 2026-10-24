@@ -8,14 +8,18 @@
 
     <!-- Main Layout Wrapper -->
     <div class="content-layout">  
-        
-        <!-- Map rendering container -->
-        <div id="map-container">
-            <div id="map"></div>
+        <div class="left-panel">
+            <h2>Left panel</h2>
+            <p>Insert links or other content here</p>
         </div>
-    </div>
 
- <!-- About Modal -->
+    <!-- Right panel with map -->
+    <div class="right-panel"> 
+        <div id="map"></div> 
+      </div> 
+    </div> 
+
+    <!-- About Modal -->
     <div id="about-modal" class="modal">
         <div class="about-modal-container">
             <div class="about-modal-content">
