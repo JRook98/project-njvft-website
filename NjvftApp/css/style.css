@@ -1,18 +1,18 @@
 /* Reset default styles */
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-	
+    
 /* Full page layout */
 body, html {            
-	height: 100%;
-	width: 100%;
-	font-family: Arial, sans-serif;
-	background-color: aliceblue;            
-	display: flex;
-	flex-direction: column;            
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background-color: aliceblue;            
+    display: flex;
+    flex-direction: column;            
 }
 
 /* Header CSS */
@@ -25,7 +25,7 @@ header {
     min-height: 150px;
     width: 100%;
     background-color: green;
-    background-image: url("Cape_May_Lighthouse_darker.jpg");
+    background-image: url("/NjvftApp/images/Cape_May_Lighthouse_darker.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -95,207 +95,206 @@ header img {
         right: 20px;
         top: 15px;
         display: flex;
-		flex-direction: column;
-		align-items: center;
+        flex-direction: column;
+        align-items: center;
         gap: 20px;
         z-index: 2;
     }
 
 /* Header Buttons Styling */
-	.header-nav button {
-		padding: 8px 18px;
-		font-size: 14px;
-		font-weight: bold;
-		color: black;
-		background-color: white;
-		border: 2px solid white;
-		border-radius: 2px;
-		cursor: pointer;    
-	
+    .header-nav button {
+        padding: 8px 18px;
+        font-size: 14px;
+        font-weight: bold;
+        color: black;
+        background-color: white;
+        border: 2px solid white;
+        border-radius: 2px;
+        cursor: pointer;    
+    
 }
 /* Header Buttons hover */
-	.header-nav button:hover {
-		background-color: lightblue;            
-		border-color: lightblue;
+    .header-nav button:hover {
+        background-color: lightblue;            
+        border-color: lightblue;
 }
 
 /* Header Dropdown Menu Styling */
-	.header-dropdown-menu {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	
-	.header-dropdown-menu label {
-		font-family: inter;
-		font-size: 18px;
-		font-weight: bold;
-		color: white;
-		margin-bottom: 4px;
-	}
-	
-	.header-dropdown-menu select {
-		padding: 6px 12px;
-		font-size: 14px;
-		font-weight: bold;
-		border: 2px solid #ccc;
-		border-radius: 4px;
-		background-color: white;
-		cursor: pointer;
-	}
-	
-	.header-dropdown-menu select:hover {
-		background-color: lightblue;
-	}
-	/* Scrolling images CSS */
-	div.scroll-container {
-		background-color: lavender;
-		overflow: hidden;
-		white-space: nowrap;
-		width: 100%;
-		margin-top: 150px; 
-		padding: 4px 0;
-	}
-	
-	.scroll-track {
-		display: inline-flex;	  
-		animation: scrollLoop 20s linear infinite; /* Note: to increase or decrease the speed, adjust the number in '20s' */
-	}
-	
-	.scroll-track img {
-		margin: 0;
-		height: 100px;
-		width: 200px;
-		object-fit: cover;
-		flex-shrink: 0;
-	}
-	
-	/* Keyframes to move the track */
-	@keyframes scrollLoop {
-	  0% {
-		transform: translateX(-50%);
-	  }
-	  100% {
-		transform: translateX(0); 
-	  }
-	}
-	
-	/* To pause the auto-scrolling, if user hovers over it */
-	.scroll-track:hover {
-		animation-play-state: paused;
-	}
+    .header-dropdown-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .header-dropdown-menu label {
+        font-family: inter;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 4px;
+    }
+    
+    .header-dropdown-menu select {
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: bold;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+    }
+    
+    .header-dropdown-menu select:hover {
+        background-color: lightblue;
+    }
+
+/* Scrolling images CSS */
+    .scroll-container {
+        background-color: black;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100%;
+        margin-top: 0px;
+        scrollbar-width: none; 
+        &::-webkit-scrollbar { display: none; }
+
+    }
+    
+    .scroll-track {
+        display: inline-flex;     
+        animation: scrollRightToLeft linear infinite;
+    }
+    
+    .scroll-track img {
+        margin: 0;
+        height: 75px;
+        width: 125px;
+        object-fit: cover;
+        flex-shrink: 0;
+        display: block;
+    }
+    
+    /* Keyframes to move the track */
+    @keyframes scrollRightToLeft {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%); 
+      }
+    }
 
 /*About Modal Styling */
-	#about-modal {
-		display: none;
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background-color: rgba(0, 0, 0, 0.5);
-		z-index: 1000;
-		overflow: auto;
-	}
+    #about-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        overflow: auto;
+    }
 
-	.about-modal-container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		min-height: 100%;
-		padding: 20px;
-		box-sizing: border-box;
-	}
+    .about-modal-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
 
-	.about-modal-content {
-		background-color: white;
-		padding: 30px;
-		border-radius: 8px;
-		max-width: 500px;
-		width: 90%;
-		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-		position: relative;
-		box-sizing: border-box;
-	}
+    .about-modal-content {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        max-width: 500px;
+        width: 90%;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        position: relative;
+        box-sizing: border-box;
+    }
 
-	.about-modal-content h2 {
-		margin-top: 0;
-		color: green;
-	}
+    .about-modal-content h2 {
+        margin-top: 0;
+        color: green;
+    }
 
-	.close-about-btn {
-		position: absolute;
-		top: 15px;
-		right: 15px;
-		background: none;
-		border: none;
-		font-size: 24px;
-		cursor: pointer;
-		color: #888;
-		line-height: 1;
-	}
+    .close-about-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #888;
+        line-height: 1;
+    }
 
-	.close-about-btn:hover,
-	.close:focus {
-		color: #333;
-		text-decoration: none;
-	}
+    .close-about-btn:hover,
+    .close:focus {
+        color: #333;
+        text-decoration: none;
+    }
 
-	.modal-footer-btn {
-		margin-top: 20px;
-		padding: 10px 20px;
-		background-color: green;
-		color: white;
-		border: none;
-		border-radius: 4px;
-		font-weight: bold;
-		cursor: pointer;
-		float: right;
-	}
+    .modal-footer-btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: green;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        float: right;
+    }
 
-	.modal-footer-btn:hover {
-		background-color: darkgreen;
-	}
+    .modal-footer-btn:hover {
+        background-color: darkgreen;
+    }
 
-/* To create the 2 panels */
+/* To create the panels */
 .content-layout {
     display: flex;  
-	flex-direction: row;
-	height: 600px;
-	width: 100%;	
-	align-items: stretch;
+    flex-direction: row;
+    height: 600px;
+    width: 100%;    
+    align-items: stretch;
     background-color: lavender;
 }
 
 /* Left panel with content TBD */
 .left-panel {
-	width: 350px;
-	min-width: 300px;
-	background-color: lavender;
-	border-right: 1px solid #ccc;
-	padding: 25px;
-	overflow-y: auto;
-	box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+    width: 350px;
+    min-width: 300px;
+    background-color: lavender;
+    border-right: 1px solid #ccc;
+    padding: 25px;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
 }
 
 .left-panel h2 {
-	color: green;
-	font-size: 22px;
-	margin-bottom: 15px;
+    color: green;
+    font-size: 22px;
+    margin-bottom: 15px;
 }
 
 .left-panel p {
-	color: green;
-	line-height: 1.5;
-	font-size: 14px;
+    color: green;
+    line-height: 1.5;
+    font-size: 14px;
 }
 
 /* Right panel containing the map */ 
 .right-panel { 
-	flex-grow: 1; 
-	height: 100%; 
-	position: relative;
-	display: flex;
+    flex-grow: 1; 
+    height: 100%; 
+    position: relative;
+    display: flex;
 } 
 
 #map {
@@ -305,12 +304,12 @@ header img {
 
 /* Footer CSS */
 footer {
-    width: 100%;		
-	text-align: center;
-	padding: 10px 0;		
-	background-color: #f1f1f1;		
-	font-size: 14px;
-	color: black;
+    width: 100%;        
+    text-align: center;
+    padding: 10px 0;        
+    background-color: #f1f1f1;      
+    font-size: 14px;
+    color: black;
 }
 
 /* info.js CSS */
