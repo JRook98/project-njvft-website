@@ -12,8 +12,8 @@ function calculateAndDisplayRoute(place, mapObject) {
     }
 
     // Remove any existing floating travel info panel from previous routes
-    if (routeInfoBoxInstance && mapObject.controls[google.maps.ControlPosition.TOP_CENTER].getLength() > 0) {
-        mapObject.controls[google.maps.ControlPosition.TOP_CENTER].clear();
+    if (routeInfoBoxInstance && mapObject.controls[google.maps.ControlPosition.TOP_RIGHT].getLength() > 0) {
+        mapObject.controls[google.maps.ControlPosition.TOP_RIGHT].clear();
     }
 
     // Initialize or re-use the Google Directions Renderer
@@ -52,18 +52,7 @@ function calculateAndDisplayRoute(place, mapObject) {
 
             // Create a styled floating UI container box directly on the map surface
             const infoBox = document.createElement("div");
-            infoBox.style.backgroundColor = "white";
-            infoBox.style.padding = "12px 18px";
-            infoBox.style.margin = "10px";
-            infoBox.style.border = "1px solid #ccc";
-            infoBox.style.borderRadius = "8px";
-            infoBox.style.boxShadow = "0px 2px 6px rgba(0,0,0,0.3)";
-            infoBox.style.fontFamily = "Arial, sans-serif";
-            infoBox.style.fontSize = "14px";
-            infoBox.style.color = "#333";
-            infoBox.style.fontWeight = "bold";
-            infoBox.style.textAlign = "center";
-            infoBox.style.zIndex = "999";
+            infoBox.className = "route-info-box"; 
             
             // Set dynamic markup text contents
             infoBox.innerHTML = `
@@ -72,11 +61,21 @@ function calculateAndDisplayRoute(place, mapObject) {
                 <div>📍 Distance: <span style="font-weight: normal; color: #555;">${travelDistance}</span></div>
             `;
 
+            const clearBtn = document.createElement("button");
+            clearBtn.textContent = "Clear Route";
+            clearBtn.className = "route-clear-btn";
+
+            clearBtn.addEventListener("click", function() {
+                clearActiveRoute(mapObject);
+            });
+
+            infoBox.appendChild(clearBtn);
+            
             // Save instance handle reference globally
             routeInfoBoxInstance = infoBox;
 
             // Push infoBox to the top center of the Google Map
-            mapObject.controls[google.maps.ControlPosition.TOP_CENTER].push(infoBox);
+            mapObject.controls[google.maps.ControlPosition.TOP_RIGHT].push(infoBox);
 
         } else {
             alert("Could not display driving directions for this route layout.");
@@ -91,9 +90,9 @@ function clearActiveRoute(mapObject) {
         directionsRendererInstance = null;
     }
 
-    if (mapObject && mapObject.controls && mapObject.controls[google.maps.ControlPosition.TOP_CENTER]) {
-        if (mapObject.controls[google.maps.ControlPosition.TOP_CENTER].getLength() > 0) {
-            mapObject.controls[google.maps.ControlPosition.TOP_CENTER].clear();
+    if (mapObject && mapObject.controls && mapObject.controls[google.maps.ControlPosition.TOP_RIGHT]) {
+        if (mapObject.controls[google.maps.ControlPosition.TOP_RIGHT].getLength() > 0) {
+            mapObject.controls[google.maps.ControlPosition.TOP_RIGHT].clear();
         }
         routeInfoBoxInstance = null;
     }
