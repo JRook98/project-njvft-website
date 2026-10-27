@@ -314,7 +314,7 @@ footer {
 
 /* info.js CSS */
 
-/* Route/Info Modal Background */
+/* Info Modal Background */
 .info-modal {
     display: none;
     position: fixed;
@@ -390,33 +390,67 @@ footer {
         background-color: lightblue;
     }
 
+/* Route Information Container CSS*/
+    /* Container Box for Route Information */
+    .route-info-box {
+      background-color: white;
+      padding: 12px 18px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #333;
+      font-weight: bold;
+      text-align: center;
+      z-index: 999;
+    }
+
+    /* Clear Route Action Button */
+    .route-clear-btn {
+      margin-top: 6px;
+      padding: 6px 12px;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 12px;
+      transition: background-color 0.2s ease;
+    }
+
+    .route-clear-btn:hover {
+      background-color: #bd2130; /* Darker red on hover */
+    }
 
 /* LandmarkInfo.html CSS */
-        .image-content {
-            flex: 1 0 auto;
-            width: 100%;
-            height: auto;
-            max-width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .image-content img {
-            width: 100%;
-            aspect-ratio: 5 / 3;
-            object-fit: cover; 
-            object-position: center;
-            display: block;
-            border-radius: 4px;
-        }
+    .image-content {
+        flex: 1 0 auto;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .image-content img {
+        width: 100%;
+        aspect-ratio: 5 / 3;
+        object-fit: cover; 
+        object-position: center;
+        display: block;
+        border-radius: 4px;
+    }
         
-        .description-box {
-            margin-bottom: 35px;
-            padding-right: 35px;
-            text-align: left;
-        }
+    .description-box {
+        margin-bottom: 35px;
+        padding-right: 35px;
+        text-align: left;
+    }
 
 /* Star Rating CSS */
 
