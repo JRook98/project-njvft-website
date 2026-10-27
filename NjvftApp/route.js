@@ -61,15 +61,16 @@ function calculateAndDisplayRoute(place, mapObject) {
                 <div>📍 Distance: <span style="font-weight: normal; color: #555;">${travelDistance}</span></div>
             `;
 
-            const clearBtn = document.createElement("button");
-            clearBtn.textContent = "Clear Route";
-            clearBtn.className = "route-clear-btn";
+            // Add clear button to route
+            const clearRouteBtn = document.createElement("button");
+            clearRouteBtn.textContent = "Clear Route";
+            clearRouteBtn.className = "route-clear-btn";
 
-            clearBtn.addEventListener("click", function() {
+            clearRouteBtn.addEventListener("click", function() {
                 clearActiveRoute(mapObject);
             });
 
-            infoBox.appendChild(clearBtn);
+            infoBox.appendChild(clearRouteBtn);
             
             // Save instance handle reference globally
             routeInfoBoxInstance = infoBox;
