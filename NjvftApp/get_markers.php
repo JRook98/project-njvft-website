@@ -6,7 +6,8 @@ require 'includes/database_connection.php';
 $sql = "SELECT 
              l.landmark_id,
              l.category_id,
-             l.name, 
+             l.name,
+             l.city,
              l.description,
              l.fact,
              l.latitude, 
@@ -43,6 +44,7 @@ if ($result && $result->num_rows > 0) {
             'landmark'      => $row['landmark_id'],
             'category'      => (string)$row['category_id'],
             'name'          => $row['name'],
+            'city'          => $row['city'],
             'description'   => $row['description'],
             'fact'          => $row['fact'],
             'lat'           => (float)$row['latitude'],
