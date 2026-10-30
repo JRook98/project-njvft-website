@@ -115,7 +115,7 @@ function initMap() {
             const marker = new google.maps.Marker({
                 position: { lat: place.lat, lng: place.lng },
                 map: map,
-                title: place.name, // Shows location name on hover
+                title: `${place.name}, ${place.city} NJ`, // Shows location name and city on hover
                 gmpClickable: true,
                 icon: normalIcon,  
                 animation: google.maps.Animation.DROP
