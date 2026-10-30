@@ -31,6 +31,7 @@ function attachModalToMarker(markerObject, mapObject, place) {
                 let renderedHtml = html
 
                     .replace("{{NAME}}", place.name || "NJ Landmark")
+                    .replace("{{CITY}}", place.city || "City")
                     .replace("{{DESCRIPTION}}", place.description || "No description provided.")
                     .replace("{{FUN_FACT}}", place.fact || "No fun facts provided.")
                     .replace("{{IMAGE}}", place.img_url || "/NjvftApp/images/NJVFT_logo.png")
