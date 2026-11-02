@@ -306,6 +306,7 @@ footer {
 
 /* Info Modal Container */
 #info-modal-container {
+    position: relative;
     width: 700px;
     max-width: 90%;
     max-height: 90vh;
@@ -316,26 +317,46 @@ footer {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    animation: infoModalFadeIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes infoModalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 /* Info modal content styling */
     .info-modal-content {
-        position: relative;
         width: 100%;
         box-sizing: border-box;
         font-family: Arial, sans-serif;
-        text-align: center;
+        text-align: left;
         background-color: aliceblue;
 
         /* Allows for modal scrolling */
         overflow-y: auto;
+        padding-right: 10px;
     }
 
     .info-modal-content img {
-        max-width: 100%;
-        height: auto;
         display: block;
-        margin: 15px auto; /* Centers the image and adds vertical spacing */
+        max-width: 100%;
+        max-height: 300px;
+        height: auto;
+        margin: 20px auto;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid #d1d1d1;
+        padding: 6px;
+        background-color: #ffffff;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15),
+                    0 4px 10px rgba(0, 0, 0, 0.1); 
     }
 
 
@@ -343,39 +364,53 @@ footer {
     .info-modal-content h2 {
         margin-top: 0;
         margin-bottom: 5px;
+        padding: 4px 40px 4px 10px;
+        color: green;
     }
     .info-modal-content h3 {
         margin-top: 5;
         margin-bottom: 20px;
+        padding-left: 10px;
+        color: green;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 20px;
+    }
+
+    /* Info description text */
+    .info-modal-content p {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding-left: 10px;
     }
 
 
     /* Close button styling */
     .close-info-btn {
         position: absolute;
-        right: 0;
-        top: 0;
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
         font-size: 24px;
-        font-weight: bold;
-        background-color: white;
-        border: 2px solid #ccc;
-        border-radius: 4px;
         cursor: pointer;
+        color: #888;
+        line-height: 1;
+        z-index: 10;
     }
 
-
-    /* Close button hover */
-    .close-info-btn:hover{
-        background-color: lightblue;
+    .close-info-btn:hover,
+    .close:focus {
+        color: #333;
+        text-decoration: none;
     }
 
-/* Route Information Container CSS*/
+/* Route Information CSS*/
     /* Container Box for Route Information */
     .route-info-box {
       background-color: white;
-      padding: 12px 18px;
-      margin: 10px;
-      border: 1px solid #ccc;
+      padding: 16px 20px;
+      margin: 15px;
+      border: 1px solid #d1d1d1;
       border-radius: 8px;
       box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
       font-family: Arial, sans-serif;
@@ -388,7 +423,7 @@ footer {
 
     /* Clear Route Action Button */
     .route-clear-btn {
-      margin-top: 6px;
+      margin: 6px;
       padding: 6px 12px;
       background-color: #dc3545;
       color: white;
@@ -424,24 +459,27 @@ footer {
         display: block;
         border-radius: 4px;
     }
-        
-    .description-box {
-        margin-bottom: 35px;
-        padding-right: 35px;
-        text-align: left;
-    }
 
 /* Star Rating CSS */
 
     /* Container styling for the injected star ratings */
     .rating-container {
-        margin: 20px 0;
+        margin: 30px 0 20px 0;
+        padding: 20px;
         font-size: 24px;
         cursor: pointer;
+        text-align: center;
      }
-        
+    
+    /* Star Rating submission/error message */
+    #star-rating-message {
+        text-align: left;      
+        padding-left: 10px;
+        margin-top: 10px;
+    }
+
     /* To separate submit button from stars */
     .submit-container {
         margin-top: 15px;
-            
+        justify-content: center;
 }
