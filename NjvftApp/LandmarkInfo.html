@@ -9,7 +9,7 @@
 
     <!-- Photo Container -->
     <div class="image-content">
-        <img src="{{IMAGE}}" alt="Landmark Photo" width="500" height="300" style="margin-bottom: 35px;">
+        <img src="{{IMAGE}}" alt="Landmark Photo" width="500" height="300">
     </div>
     
     <!-- Title Header -->
@@ -17,29 +17,31 @@
     <h3>{{CITY}}, New Jersey</h3> 
     
     <!-- Landmark Description Block -->
-    <div class="description-box" style="margin-bottom: 35px;">
+    <div class="description-box">
         <p>{{DESCRIPTION}}</p>
     </div>
     
     <!-- Fun Fact Block -->
-    <div class="description-box" style="margin-bottom: 35px;">
+    <div class="description-box-fun-fact">
         <p><strong>Fun Fact:</strong> {{FUN_FACT}}</p>
     </div>
     
     <!-- Official Link -->
-    <p>For more information, visit the <a href="{{URL}}" target="_blank">official website!</a></p>
+    <p class="official-link-text">
+        For more information, visit the <a href="{{URL}}" target="_blank">official website!</a>
+    </p>
 
-        <!-- Route Button -->
-    <div class="route-button-box" style="margin-top: 50px; text-align: center;">
-        <label for="route-btn" style="display: block; margin-bottom: 8px; font-weight: bold;">Click the button below for driving directions</label>
-        <button id="route-btn" style="padding: 12px 24px; font-size: 16px; font-weight: bold; background-color: blue; color: white; border: none; border-radius: 4px; cursor: pointer;">Get Route</button>
+    <!-- Route Button Block -->
+    <div class="route-button-box">
+        <label for="route-btn">Click the button below for driving directions</label>
+        <button id="route-btn" class="modal-route-action-btn">Get Route</button>
     </div>
 
     <!-- Star Rating Space -->
     <div class="star-rating-box">
-        <p style="margin-top: 50px;">Did you enjoy exploring this landmark? Leave a rating below!</p>
-        <div id="star-rating-message" style="margin-top: 15px; font-weight: bold;"></div>
-        <div id="star-rating-root" class="rating-container" style="margin: 20px 0; font-size: 24px; cursor: pointer;"></div>
+        <p class="rating-prompt">Did you enjoy exploring this landmark? Leave a rating below!</p>
+        <div id="star-rating-message"></div>
+        <div id="star-rating-root" class="rating-container"></div>
     </div>
     
 </div>
