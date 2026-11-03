@@ -509,3 +509,11 @@ footer {
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         transform: translateY(0);
     }
+/* Star hover effect */
+    #stars-row .fa-star {
+        transition: color 0.15s ease, transform 0.15s ease;
+    }
+
+    #stars-row .fa-star:hover {
+        transform: scale(1.2);
+    }
