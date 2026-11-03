@@ -517,3 +517,53 @@ footer {
     #stars-row .fa-star:hover {
         transform: scale(1.2);
     }
+/* LandmarkInfo.html section spacing (moved from inline styles) */
+    .image-content img {
+        margin-bottom: 35px;
+    }
+
+    .description-box,
+    .description-box-fun-fact {
+        margin-bottom: 35px;
+    }
+
+    .official-link-text {
+        text-align: center;
+    }
+
+/* Get Route section */
+    .route-button-box {
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    .route-button-box label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    .modal-route-action-btn {
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: blue;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .modal-route-action-btn:hover {
+        background-color: darkblue;
+    }
+
+/* Star rating prompt spacing */
+    .info-modal-content .rating-prompt {
+        margin-top: 50px;
+    }
+
+    #star-rating-message {
+        margin-top: 15px;
+        font-weight: bold;
+    }
