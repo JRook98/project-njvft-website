@@ -483,3 +483,29 @@ footer {
         margin-top: 15px;
         justify-content: center;
 }
+/* Button hover shadow (shared by all main buttons) */
+    .header-nav button,
+    .modal-footer-btn,
+    .modal-route-action-btn,
+    .route-clear-btn,
+    #submitBtn {
+        transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .header-nav button:hover,
+    .modal-footer-btn:hover,
+    .modal-route-action-btn:hover,
+    .route-clear-btn:hover,
+    #submitBtn:hover {
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+        transform: translateY(-2px);
+    }
+
+    .header-nav button:active,
+    .modal-footer-btn:active,
+    .modal-route-action-btn:active,
+    .route-clear-btn:active,
+    #submitBtn:active {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        transform: translateY(0);
+    }
