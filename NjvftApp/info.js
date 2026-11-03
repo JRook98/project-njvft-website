@@ -137,7 +137,20 @@ function setupStarRatingSystem(place) {
                 selectedRating = i; // Save the selected star count
                 updateStarsUI(selectedRating);
             });
+
+            // Preview: turn stars gold up to the one being hovered
+            starNode.addEventListener("mouseenter", function() {
+                updateStarsUI(i);
+            });
         }
+    }
+
+    // When the mouse leaves the stars, go back to the saved selection
+    const starsRow = document.getElementById("stars-row");
+    if (starsRow) {
+        starsRow.addEventListener("mouseleave", function() {
+            updateStarsUI(selectedRating);
+        });
     }
 
     const submitBtn = document.getElementById("submitBtn");
