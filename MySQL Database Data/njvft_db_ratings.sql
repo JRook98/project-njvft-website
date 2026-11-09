@@ -30,7 +30,7 @@ CREATE TABLE `ratings` (
   PRIMARY KEY (`rating_id`),
   KEY `fk_ratings_landmarks` (`landmark_id`),
   CONSTRAINT `fk_ratings_landmarks` FOREIGN KEY (`landmark_id`) REFERENCES `landmarks` (`landmark_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,7 @@ CREATE TABLE `ratings` (
 
 LOCK TABLES `ratings` WRITE;
 /*!40000 ALTER TABLE `ratings` DISABLE KEYS */;
+INSERT INTO `ratings` VALUES (1,6,4,'2026-11-02 04:34:14'),(2,2,5,'2026-11-02 05:02:04'),(3,2,4,'2026-11-02 05:02:12'),(4,6,4,'2026-11-02 05:45:58'),(5,3,5,'2026-11-02 05:47:35'),(6,1,4,'2026-11-02 06:25:19'),(7,2,1,'2026-11-02 06:26:05'),(8,2,3,'2026-11-02 06:31:22'),(9,1,3,'2026-11-02 06:32:58'),(10,1,2,'2026-11-02 06:33:42'),(11,5,4,'2026-11-04 01:54:48'),(12,2,4,'2026-11-04 02:03:31'),(13,10,4,'2026-11-09 00:53:49');
 /*!40000 ALTER TABLE `ratings` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-10-30 12:46:32
+-- Dump completed on 2026-11-08 20:35:55
