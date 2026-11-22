@@ -16,60 +16,60 @@ function attachModalToMarker(markerObject, mapObject, place) {
         // Load LandmarkInfo.html
         fetch("LandmarkInfo.html")
 
-            .then(response => {
+        .then(response => {
 
-                if (!response.ok) {
-                    throw new Error("Unable to load LandmarkInfo.html");
+            if (!response.ok) {
+                throw new Error("Unable to load LandmarkInfo.html");
+            }
+
+            return response.text();
+        })
+
+        .then(html => {
+
+            // Push database values inside the LandmarkInfo.html template
+            let renderedHtml = html
+
+                .replace("{{NAME}}", place.name || "NJ Landmark")
+                .replace("{{CITY}}", place.city || "City")
+                .replace("{{DESCRIPTION}}", place.description || "No description provided.")
+                .replace("{{FUN_FACT}}", place.fact || "No fun facts provided.")
+                .replace("{{IMAGE}}", place.img_url || "/NjvftApp/images/NJVFT_logo.png")
+                .replace("{{URL}}", place.web_url || "https://rowan.edu");
+
+            // Put LandmarkInfo.html inside the modal
+            infoModalContainer.innerHTML = renderedHtml;
+
+            // Display Average Star Rating
+            setupStarRatingSystem(place);
+
+            const routeButton = document.getElementById("route-btn");
+                if (routeButton) {
+                    routeButton.addEventListener("click", function () {
+                    infoModal.style.display = "none";
+                    calculateAndDisplayRoute(place, mapObject);
+                    });
                 }
 
-                return response.text();
-            })
+            // Show the modal
+            infoModal.style.display = "flex";
 
-            .then(html => {
+            // Grab the close button from LandmarkInfo.html
+            const closeButton = document.getElementById("close-info-btn");
 
-                // Push database values inside the LandmarkInfo.html template
-                let renderedHtml = html
+            // Close modal when X is clicked
+            closeButton.addEventListener("click", function () {
 
-                    .replace("{{NAME}}", place.name || "NJ Landmark")
-                    .replace("{{CITY}}", place.city || "City")
-                    .replace("{{DESCRIPTION}}", place.description || "No description provided.")
-                    .replace("{{FUN_FACT}}", place.fact || "No fun facts provided.")
-                    .replace("{{IMAGE}}", place.img_url || "/NjvftApp/images/NJVFT_logo.png")
-                    .replace("{{URL}}", place.web_url || "https://rowan.edu");
-
-                // Put LandmarkInfo.html inside the modal
-                infoModalContainer.innerHTML = renderedHtml;
-
-                // Display Average Star Rating
-                setupStarRatingSystem(place);
-
-                const routeButton = document.getElementById("route-btn");
-                    if (routeButton) {
-                        routeButton.addEventListener("click", function () {
-                        infoModal.style.display = "none";
-                        calculateAndDisplayRoute(place, mapObject);
-                        });
-                    }
-
-                // Show the modal
-                infoModal.style.display = "flex";
-
-                // Grab the close button from LandmarkInfo.html
-                const closeButton = document.getElementById("close-info-btn");
-
-                // Close modal when X is clicked
-                closeButton.addEventListener("click", function () {
-
-                    infoModal.style.display = "none";
-
-                });
-            })
-
-            .catch(error => {
-
-                console.error("Error setting up Info Modal data workflows:", error);
+                infoModal.style.display = "none";
 
             });
+        })
+
+        .catch(error => {
+
+            console.error("Error setting up Info Modal data workflows:", error);
+
+        });
 
     });
 
@@ -83,7 +83,6 @@ function attachModalToMarker(markerObject, mapObject, place) {
         }
     });
 }
-
 
 
 /* Function setupStarRatingSystem generates, renders, and validates processing for star elements */
@@ -137,26 +136,13 @@ function setupStarRatingSystem(place) {
                 selectedRating = i; // Save the selected star count
                 updateStarsUI(selectedRating);
             });
-
-            // Preview: turn stars gold up to the one being hovered
-            starNode.addEventListener("mouseenter", function() {
-                updateStarsUI(i);
-            });
         }
-    }
-
-    // When the mouse leaves the stars, go back to the saved selection
-    const starsRow = document.getElementById("stars-row");
-    if (starsRow) {
-        starsRow.addEventListener("mouseleave", function() {
-            updateStarsUI(selectedRating);
-        });
     }
 
     const submitBtn = document.getElementById("submitBtn");
     const messageNode = document.getElementById("star-rating-message");
 
-      // When user clicks submit button
+    // When user clicks submit button
     if (submitBtn) {
         submitBtn.addEventListener("click", function() {
 
@@ -189,6 +175,7 @@ function setupStarRatingSystem(place) {
             })
             .then(response => response.json())
 
+            // Display success message with error handling
             .then(data => {
                 if (data.success) {
                     if (messageNode) {
