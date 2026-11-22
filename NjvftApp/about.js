@@ -10,17 +10,17 @@ function openAboutModal() {
 
 	<h2 style="text-align: left;">Features</h2><br>
 
-	1. Select a landmark on the map to learn more about it! <br><br>
+	<strong>1.</strong> Select a landmark on the map to learn more about it! <br><br>
 
-  	2. Rate each location with a star rating from 1 to 5! <br><br>
+  	<strong>2.</strong> Rate each location with a star rating from 1 to 5! <br><br>
 
-  	3. Generate driving directions from your current location to a chosen landmark!
+  	<strong>3.</strong> Generate driving directions from your current location to a chosen landmark!
   	</p>`;
 		
     document.getElementById("aboutModalContent").innerHTML = htmlContent;
-	}
+}
 
-//Close About modal
+// Close About modal
 function closeAboutModal() {
 	const aboutModal = document.getElementById("about-modal");
 	aboutModal.style.display = "none";
