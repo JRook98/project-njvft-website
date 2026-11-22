@@ -1,19 +1,19 @@
 /* Function initMap() initializes the google map, centers the map onto New Jersey with bound restrictions,
-	sets a marker at the users current location if applicable, and allows users to place a new marker wherever they click on the map. */
+    sets a marker at the users current location if applicable, and allows users to place a new marker wherever they click on the map. */
 function initMap() {
 
-      // Const variable to set the coordinates for the center of the map
-  const MAP_CENTER = { lat: 40.1147, lng: -74.7707 };
+    // Const variable to set the coordinates for the center of the map
+    const MAP_CENTER = { lat: 40.1147, lng: -74.7707 };
 
       // Const variable to set the bounds for scrolling on the Google map
-  const MAP_BOUNDS = {
+    const MAP_BOUNDS = {
   		north: 41.46,  // Top edge
   		south: 38.72,  // Bottom edge
   		west: -75.66,  // Left edge
  		east: -73.89,  // Right edge
  	};
 
-      // Fetches document element with id: "map" to create a new google map, "mapObject", with bounds and restrictions
+    // Fetches document element with id: "map" to create a new google map, "mapObject", with bounds and restrictions
  	const mapObject = new google.maps.Map(document.getElementById("map"), {
  		zoom: 7,
  		maxZoom: 11,
@@ -21,7 +21,7 @@ function initMap() {
  		restriction: {latLngBounds: MAP_BOUNDS, strictBounds: false}
  	});
 
- 	  // Call loadDatabaseMarkers() function to place markers on the google map using landmark data from the MySQL database
+ 	// Call loadDatabaseMarkers() function to place markers on the google map using landmark data from the MySQL database
  	loadDatabaseMarkers(mapObject);
 
     // Set variable of currentMarker to null
@@ -53,39 +53,39 @@ function initMap() {
                         url: '/NjvftApp/images/NJVFT_marker_user.png',
                         scaledSize: new google.maps.Size(30, 45)
                     }  
-            });
+                });
             }, 600);
         },
         );
  	} 
-
  }
+
 
  /* Function loadDatabaseMarkers() initializes the database, grabs the category id, name, longitude, and latitude of landmarks, 
  	and displays them on the Google Map */
  function loadDatabaseMarkers(map) {
 
     // Fetch markers using get_markers.php
-   const apiEndpoint = 'get_markers.php'; 
+    const apiEndpoint = 'get_markers.php'; 
 
     // Associates category_id with marker image
-   const CATEGORY_ICONS = {
+    const CATEGORY_ICONS = {
     '1': '/NjvftApp/images/NJVFT_marker_museum.png',
     '2': '/NjvftApp/images/NJVFT_marker_beach.png',
     '3': '/NjvftApp/images/NJVFT_marker_village.png'
-}
+    }
 
     // If a landmark's category id is not 1, 2, or 3, use a default marker
     const defaultIcon = '/NjvftApp/images/NJVFT_marker_user.png';
 
     fetch(apiEndpoint)
 
-
     // Check if there is a response
     .then(response => {
-     if (!response.ok) {
-         throw new Error('Network response was not ok');
-    }
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
     return response.json();
     })
 
@@ -158,7 +158,6 @@ function initMap() {
 
         // selectMenu variable touches dropdown filter element
         const selectMenu = document.getElementById("location-select");
-
 
         const valueMap = {
             "museums": "1",
