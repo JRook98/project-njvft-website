@@ -47,14 +47,14 @@ function calculateAndDisplayRoute(place, mapObject) {
 
             // Real-time duration and distance text
             const routeLeg = result.routes[0].legs[0];
-            const travelDuration = routeLeg.duration.text; // e.g., "45 mins"
-            const travelDistance = routeLeg.distance.text; // e.g., "28.4 mi"
+            const travelDuration = routeLeg.duration.text;
+            const travelDistance = routeLeg.distance.text;
 
-            // Create a styled floating UI container box directly on the map surface
+            // Info box to display time and distance
             const infoBox = document.createElement("div");
             infoBox.className = "route-info-box"; 
             
-            // Set dynamic markup text contents
+            // Displays time and distance metrics
             infoBox.innerHTML = `
                 <div style="color: #0000FF; font-size: 16px; margin-bottom: 4px;">Driving Directions</div>
                 <div>🕒 Time: <span style="font-weight: normal; color: #555;">${travelDuration}</span></div>
@@ -78,7 +78,8 @@ function calculateAndDisplayRoute(place, mapObject) {
             // Push infoBox to the top center of the Google Map
             mapObject.controls[google.maps.ControlPosition.TOP_RIGHT].push(infoBox);
 
-        } else {
+        } 
+        else {
             alert("Could not display driving directions for this route layout.");
         }
     });
