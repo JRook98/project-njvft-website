@@ -15,7 +15,9 @@ body, html {
     flex-direction: column;            
 }
 
+
 /* Header CSS */
+
 header {
     display: flex;
     flex-direction: column;
@@ -59,8 +61,11 @@ header img {
 
 /* Header: New Jersey Virtual Field Trip text styling */
 .header-text h3 {
-    margin: 20px 0 0 0;
+    margin: 3px auto 0 auto; 
+    max-width: 480px;
     text-align: center;
+    text-wrap: balance;
+    line-height: 1.3;  
     font-family: Verdana;
     font-size: 22px;
     font-weight: 400;
@@ -76,7 +81,6 @@ header img {
     transform: translateY(0);
 }
 
-
 /* Header Text Animation */
 @keyframes headerTextSlideDown {
     from {
@@ -90,171 +94,172 @@ header img {
 }
 
 /* Header Buttons */
-    .header-nav {
-        position: absolute;
-        right: 20px;
-        top: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        z-index: 2;
-    }
+.header-nav {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 2;
+}
 
 /* Header Buttons Styling */
-    .header-nav button {
-        padding: 8px 18px;
-        font-size: 14px;
-        font-weight: bold;
-        color: black;
-        background-color: white;
-        border: 2px solid white;
-        border-radius: 2px;
-        cursor: pointer;    
-    
+.header-nav button {
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 2px;
+    cursor: pointer;      
 }
+
 /* Header Buttons hover */
-    .header-nav button:hover {
-        background-color: lightblue;            
-        border-color: lightblue;
+.header-nav button:hover {
+    background-color: lightblue;            
+    border-color: lightblue;
 }
 
 /* Header Dropdown Menu Styling */
-    .header-dropdown-menu {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+.header-dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
     
-    .header-dropdown-menu label {
-        font-family: inter;
-        font-size: 18px;
-        font-weight: bold;
-        color: white;
-        margin-bottom: 4px;
-    }
+.header-dropdown-menu label {
+    font-family: inter;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 4px;
+}
     
-    .header-dropdown-menu select {
-        padding: 6px 12px;
-        font-size: 14px;
-        font-weight: bold;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        background-color: white;
-        cursor: pointer;
-    }
+.header-dropdown-menu select {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+}
     
-    .header-dropdown-menu select:hover {
-        background-color: lightblue;
-    }
+.header-dropdown-menu select:hover {
+    background-color: lightblue;
+}
+
 
 /* Scrolling images CSS */
-    .scroll-container {
-        background-color: black;
-        overflow: hidden;
-        white-space: nowrap;
-        width: 100%;
-        margin-top: 0px;
-        scrollbar-width: none; 
-        &::-webkit-scrollbar { display: none; }
 
-    }
+.scroll-container {
+    background-color: black;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    margin-top: 0px;
+    scrollbar-width: none; 
+    &::-webkit-scrollbar { display: none; }
+}
     
-    .scroll-track {
-        display: inline-flex;     
-        animation: scrollRightToLeft linear infinite;
-    }
+.scroll-track {
+    display: inline-flex;     
+    animation: scrollRightToLeft linear infinite;
+}
     
-    .scroll-track img {
-        margin: 0;
-        height: 75px;
-        width: 125px;
-        object-fit: cover;
-        flex-shrink: 0;
-        display: block;
-    }
+.scroll-track img {
+    margin: 0;
+    height: 75px;
+    width: 125px;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: block;
+}
     
-    /* Keyframes to move the track */
-    @keyframes scrollRightToLeft {
-      0% {
+/* Keyframes to move the track */
+@keyframes scrollRightToLeft {
+    0% {
         transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%); 
-      }
     }
+    100% {
+        transform: translateX(-50%); 
+    }
+}
 
 /*About Modal Styling */
-    #about-modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-        overflow: auto;
-    }
+#about-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow: auto;
+}
 
-    .about-modal-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100%;
-        padding: 20px;
-        box-sizing: border-box;
-    }
+.about-modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-    .about-modal-content {
-        background-color: white;
-        padding: 30px;
-        border-radius: 8px;
-        max-width: 500px;
-        width: 90%;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        position: relative;
-        box-sizing: border-box;
-    }
+.about-modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    box-sizing: border-box;
+}
 
-    .about-modal-content h2 {
-        margin-top: 0;
-        color: green;
-    }
+.about-modal-content h2 {
+    margin-top: 0;
+    color: green;
+}
 
-    .close-about-btn {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        background: none;
-        border: none;
-        font-size: 24px;
-        cursor: pointer;
-        color: #888;
-        line-height: 1;
-    }
+.close-about-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+    line-height: 1;
+}
 
-    .close-about-btn:hover,
-    .close:focus {
-        color: #333;
-        text-decoration: none;
-    }
+.close-about-btn:hover,
+.close:focus {
+    color: #333;
+    text-decoration: none;
+}
 
-    .modal-footer-btn {
-        margin-top: 20px;
-        padding: 10px 20px;
-        background-color: green;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        font-weight: bold;
-        cursor: pointer;
-        float: right;
-    }
+.modal-footer-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    float: right;
+}
 
-    .modal-footer-btn:hover {
-        background-color: darkgreen;
-    }
+.modal-footer-btn:hover {
+    background-color: darkgreen;
+}
 
 /* To create the main panel */
 .content-layout {
@@ -277,7 +282,9 @@ header img {
     height: 100%;    
 }
 
+
 /* Footer CSS */
+
 footer {
     width: 100%;        
     text-align: center;
@@ -286,6 +293,7 @@ footer {
     font-size: 14px;
     color: black;
 }
+
 
 /* info.js CSS */
 
@@ -302,7 +310,6 @@ footer {
     align-items: center;
     z-index: 1000;
 }
-
 
 /* Info Modal Container */
 #info-modal-container {
@@ -332,238 +339,375 @@ footer {
 }
 
 /* Info modal content styling */
-    .info-modal-content {
-        width: 100%;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-        text-align: left;
-        background-color: aliceblue;
+.info-modal-content {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    text-align: left;
+    background-color: aliceblue;
 
-        /* Allows for modal scrolling */
-        overflow-y: auto;
-        padding-right: 10px;
-    }
+    /* Allows for modal scrolling */
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
 
-    .info-modal-content img {
-        display: block;
-        max-width: 100%;
-        max-height: 300px;
-        height: auto;
-        margin: 20px auto;
-        object-fit: cover;
-        border-radius: 8px;
-        border: 1px solid #d1d1d1;
-        padding: 6px;
-        background-color: #ffffff;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15),
-                    0 4px 10px rgba(0, 0, 0, 0.1); 
-    }
+.info-modal-content img {
+    display: block;
+    max-width: 100%;
+    max-height: 300px;
+    height: auto;
+    margin: 20px auto;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #d1d1d1;
+    padding: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15),
+                0 4px 10px rgba(0, 0, 0, 0.1); 
+}
 
+/* Info modal title */
+.info-modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding: 4px 40px 4px 10px;
+    color: green;
+}
+    
+.info-modal-content h3 {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    color: green;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 20px;
+}
 
-    /* Info modal title */
-    .info-modal-content h2 {
-        margin-top: 0;
-        margin-bottom: 5px;
-        padding: 4px 40px 4px 10px;
-        color: green;
-    }
-    .info-modal-content h3 {
-        margin-top: 5;
-        margin-bottom: 20px;
-        padding-left: 10px;
-        color: green;
-        border-bottom: 2px solid #e2e8f0;
-        padding-bottom: 20px;
-    }
+/* Info description text */
+.info-modal-content p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+}
 
-    /* Info description text */
-    .info-modal-content p {
-        margin-top: 5px;
-        margin-bottom: 5px;
-        padding-left: 10px;
-    }
+/* Close button styling */
+.close-info-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+    line-height: 1;
+    z-index: 10;
+}
 
+.close-info-btn:hover,
+.close:focus {
+    color: #333;
+    text-decoration: none;
+}
 
-    /* Close button styling */
-    .close-info-btn {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        background: none;
-        border: none;
-        font-size: 24px;
-        cursor: pointer;
-        color: #888;
-        line-height: 1;
-        z-index: 10;
-    }
-
-    .close-info-btn:hover,
-    .close:focus {
-        color: #333;
-        text-decoration: none;
-    }
 
 /* Route Information CSS*/
-    /* Container Box for Route Information */
-    .route-info-box {
-      background-color: white;
-      padding: 16px 20px;
-      margin: 15px;
-      border: 1px solid #d1d1d1;
-      border-radius: 8px;
-      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      color: #333;
-      font-weight: bold;
-      text-align: center;
-      z-index: 999;
-    }
 
-    /* Clear Route Action Button */
-    .route-clear-btn {
-      margin: 6px;
-      padding: 6px 12px;
-      background-color: #dc3545;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 12px;
-      transition: background-color 0.2s ease;
-    }
+/* Container Box for Route Information */
+.route-info-box {
+    background-color: white;
+    padding: 16px 20px;
+    margin: 15px;
+    border: 1px solid #d1d1d1;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    z-index: 999;
+}
 
-    .route-clear-btn:hover {
-      background-color: #bd2130; /* Darker red on hover */
-    }
+/* Clear Route Action Button */
+.route-clear-btn {
+    margin: 6px;
+    padding: 6px 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+    transition: background-color 0.2s ease;
+}
+
+.route-clear-btn:hover {
+    background-color: #bd2130; /* Darker red on hover */
+}
+
 
 /* LandmarkInfo.html CSS */
-    .image-content {
-        flex: 1 0 auto;
-        width: 100%;
-        height: auto;
-        max-width: 100%;
-        padding: 20px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .image-content img {
-        width: 100%;
-        aspect-ratio: 5 / 3;
-        object-fit: cover; 
-        object-position: center;
-        display: block;
-        border-radius: 4px;
-    }
+
+.image-content {
+    flex: 1 0 auto;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    
+.image-content img {
+    width: 100%;
+    aspect-ratio: 5 / 3;
+    object-fit: cover; 
+    object-position: center;
+    display: block;
+    border-radius: 4px;
+    margin-bottom: 35px;
+}
+
+.description-box,
+.description-box-fun-fact {
+    margin-bottom: 35px;
+}
+
+.official-link-text {
+    text-align: center;
+}
+
+
+/* Get Route section */
+.route-button-box {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.route-button-box label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.modal-route-action-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-route-action-btn:hover {
+    background-color: darkblue;
+}
 
 /* Star Rating CSS */
 
-    /* Container styling for the injected star ratings */
-    .rating-container {
-        margin: 30px 0 20px 0;
-        padding: 20px;
-        font-size: 24px;
-        cursor: pointer;
-        text-align: center;
-     }
-    
-    /* Star Rating submission/error message */
-    #star-rating-message {
-        text-align: left;      
-        padding-left: 10px;
-        margin-top: 10px;
-    }
-
-    /* To separate submit button from stars */
-    .submit-container {
-        margin-top: 15px;
-        justify-content: center;
+/* Container styling for the injected star ratings */
+.rating-container {
+    margin: 30px 0 20px 0;
+    padding: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
 }
-/* Button hover shadow (shared by all main buttons) */
-    .header-nav button,
-    .modal-footer-btn,
-    .modal-route-action-btn,
-    .route-clear-btn,
-    #submitBtn {
-        transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
-    }
+    
+/* Star Rating submission/error message */
+#star-rating-message {
+    text-align: left;      
+    padding-left: 10px;
+    margin-top: 15px;
+    font-weight: bold;
+}
 
-    .header-nav button:hover,
-    .modal-footer-btn:hover,
-    .modal-route-action-btn:hover,
-    .route-clear-btn:hover,
-    #submitBtn:hover {
-        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
-        transform: translateY(-2px);
-    }
+/* To separate submit button from stars */
+.submit-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
 
-    .header-nav button:active,
-    .modal-footer-btn:active,
-    .modal-route-action-btn:active,
-    .route-clear-btn:active,
-    #submitBtn:active {
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        transform: translateY(0);
-    }
 /* Star hover effect */
-    #stars-row .fa-star {
-        transition: color 0.15s ease, transform 0.15s ease;
-    }
+#stars-row .fa-star {
+    transition: color 0.15s ease, transform 0.15s ease;
+}
 
-    #stars-row .fa-star:hover {
-        transform: scale(1.2);
-    }
-/* LandmarkInfo.html section spacing (moved from inline styles) */
-    .image-content img {
-        margin-bottom: 35px;
-    }
-
-    .description-box,
-    .description-box-fun-fact {
-        margin-bottom: 35px;
-    }
-
-    .official-link-text {
-        text-align: center;
-    }
-
-/* Get Route section */
-    .route-button-box {
-        margin-top: 50px;
-        text-align: center;
-    }
-
-    .route-button-box label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: bold;
-    }
-
-    .modal-route-action-btn {
-        padding: 12px 24px;
-        font-size: 16px;
-        font-weight: bold;
-        background-color: blue;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .modal-route-action-btn:hover {
-        background-color: darkblue;
-    }
+#stars-row .fa-star:hover {
+    transform: scale(1.2);
+}
 
 /* Star rating prompt spacing */
-    .info-modal-content .rating-prompt {
-        margin-top: 50px;
+.info-modal-content .rating-prompt {
+    margin-top: 50px;
+}
+
+
+/* Button hover shadow (shared by all main buttons) */
+.header-nav button,
+.modal-footer-btn,
+.modal-route-action-btn,
+.route-clear-btn,
+#submitBtn {
+    transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+}
+
+.header-nav button:hover,
+.modal-footer-btn:hover,
+.modal-route-action-btn:hover,
+.route-clear-btn:hover,
+#submitBtn:hover {
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+    transform: translateY(-2px);
+}
+
+.header-nav button:active,
+.modal-footer-btn:active,
+.modal-route-action-btn:active,
+.route-clear-btn:active,
+#submitBtn:active {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transform: translateY(0);
+}
+
+
+/* Mobile Version CSS */
+
+@media (max-width: 832px) {
+
+    /* Header (Mobile Version) CSS */
+    header {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 12px;
+        min-height: 110px;
     }
 
-    #star-rating-message {
-        margin-top: 15px;
-        font-weight: bold;
+    header img {
+        position: static;
+        transform: none;
+        height: 55px;
+        width: auto;
     }
+
+    .header-text {
+        text-align: center;
+        min-width: 0;
+    }
+
+    .header-text h1 {
+        font-size: 40px;
+        letter-spacing: 1.5px;
+    }
+
+    .header-text h3 {
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        margin-top: 4px;
+        line-height: 1.2;
+    }
+
+    .header-nav {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 6px;
+    }
+
+    .header-nav button {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+
+    .header-dropdown-menu {
+        align-items: flex-end;
+    }
+
+    .header-dropdown-menu label {
+        font-size: 10px;
+        margin-bottom: 2px;
+    }
+
+    .header-dropdown-menu select {
+        font-size: 11px;
+        padding: 4px 6px;
+        max-width: 115px;
+    }
+
+
+    /* Scrolling Images (Mobile Version) CSS */
+
+    .scroll-track img {
+        height: 55px;
+        width: 95px;
+    }
+
+    .content-layout {
+        height: 65vh;
+        flex: 1;
+        min-height: 300px;
+    }
+
+
+    /* About Modal (Mobile Version) CSS */
+
+    .about-modal-content,
+    #info-modal-container {
+        width: 95%;
+        max-width: 95%;
+        padding: 20px 15px;
+    }
+
+
+    /* Info Modal (Mobile Version) CSS */
+
+    .info-modal-content h2 {
+        font-size: 20px;
+        padding-right: 30px; /* Keep clear of close 'X' button */
+    }
+
+    .info-modal-content h3 {
+        font-size: 16px;
+        padding-bottom: 12px;
+        margin-bottom: 15px;
+    }
+
+    .image-content {
+        padding: 10px 0;
+    }
+
+    .image-content img {
+        max-height: none;
+        margin-bottom: 20px;
+    }
+
+    .route-info-box {
+        margin: 10px;
+        padding: 12px;
+        font-size: 13px;
+    }
+
+
+    /* Star Rating (Mobile Version) CSS */
+
+    .rating-container {
+        padding: 10px;
+        font-size: 28px;
+    }
+
+    #stars-row .fa-star {
+        margin: 0 4px;
+    }
+}
