@@ -25,7 +25,6 @@ if ($rating_val < 1 || $rating_val > 5) {
 }
 
 // Save rating into ratings table
-
 $sql = "INSERT INTO ratings (landmark_id, rating_val) VALUES (?, ?) 
         ON DUPLICATE KEY UPDATE rating_val = ?";
 
@@ -33,7 +32,6 @@ $sql = "INSERT INTO ratings (landmark_id, rating_val) VALUES (?, ?)
 $stmt = $conn->prepare($sql);
 
 if ($stmt) {
-    // Bind parameters: 'i' for integer (landmark_id, rating_val, rating_val)
     $stmt->bind_param("iii", $landmark_id, $rating_val, $rating_val);
     
     if ($stmt->execute()) {
